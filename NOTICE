@@ -1,0 +1,7 @@
+Kryptos
+Copyright 2026 The AI Toy Company
+
+The optional detector models and browser Python runtime are separate works
+with their own licenses. Model weights are not distributed in this repository.
+The tests and examples are synthetic. The first-name lexicon is an incomplete
+list of common given names, not a list of people or customer identities.

@@ -1,0 +1,221 @@
+{
+  "profile": "child_family_default",
+  "taxonomy_path": null,
+  "language": "en",
+  "_detectors": "All detectors inspect the original text before transformation. Enabled detectors are required; failures stop processing.",
+  "detectors": [
+    {
+      "name": "known_values",
+      "type": "known_values",
+      "enabled": true,
+      "fuzzy": true,
+      "fuzzy_threshold": 0.82,
+      "phonetic": true
+    },
+    {
+      "name": "rules",
+      "type": "regex",
+      "enabled": true
+    },
+    {
+      "name": "context",
+      "type": "context",
+      "enabled": true
+    },
+    {
+      "name": "opf",
+      "type": "hf_token",
+      "enabled": false,
+      "family": "opf",
+      "model": "openai/privacy-filter",
+      "aggregation": "bioes",
+      "device": "auto",
+      "max_length": 4096,
+      "stride": 256,
+      "revision": "7ffa9a043d54d1be65afb281eddf0ffbe629385b"
+    },
+    {
+      "name": "gliner_child",
+      "type": "gliner",
+      "enabled": false,
+      "family": "gliner",
+      "model": "urchade/gliner_multi_pii-v1",
+      "threshold": 0.28,
+      "labels": "@child_family",
+      "chunk_chars": 1800,
+      "revision": "1fcf13e85f4eef5394e1fcd406cf2ca9ea82351d",
+      "backbone_model": "microsoft/mdeberta-v3-base",
+      "backbone_revision": "a0484667b22365f84929a935b5e50a51f71f159d"
+    }
+  ],
+  "_label_sets": "Named label sets referenced by GLiNER detectors via '@name'.",
+  "label_sets": {
+    "builtin_pii": [
+      "person",
+      "person name",
+      "email",
+      "phone number",
+      "url",
+      "home address",
+      "street address",
+      "postcode",
+      "city",
+      "organization",
+      "date of birth",
+      "date",
+      "time",
+      "age",
+      "username",
+      "social media handle",
+      "account number",
+      "credit card number",
+      "medical record number",
+      "password",
+      "occupation"
+    ],
+    "child_family": [
+      "child name",
+      "parent name",
+      "sibling name",
+      "relative name",
+      "teacher name",
+      "therapist name",
+      "doctor name",
+      "coach name",
+      "friend name",
+      "school name",
+      "daycare name",
+      "class name",
+      "sports team",
+      "club name",
+      "home address",
+      "neighborhood",
+      "local landmark",
+      "bus route",
+      "parent workplace",
+      "occupation",
+      "date of birth",
+      "age",
+      "student id",
+      "medical condition",
+      "unique event",
+      "family relationship",
+      "social media handle",
+      "username",
+      "email",
+      "phone number"
+    ]
+  },
+  "_thresholds": "Per-entity minimum fused score. Child-relevant direct identifiers sit deliberately low: for minors a false positive costs formatting, a false negative costs identity.",
+  "thresholds": {
+    "_default": 0.35,
+    "_tier_direct": 0.25,
+    "_tier_quasi": 0.45,
+    "_tier_sensitive": 0.45,
+    "CHILD_NAME": 0.15,
+    "PARENT_NAME": 0.18,
+    "SIBLING_NAME": 0.2,
+    "TEACHER_NAME": 0.2,
+    "SCHOOL_NAME": 0.2,
+    "DAYCARE_NAME": 0.2,
+    "PERSON_NAME": 0.22,
+    "HOME_ADDRESS": 0.15,
+    "PHONE": 0.2,
+    "EMAIL": 0.2
+  },
+  "fusion": {
+    "_mode": "union = high recall (recommended for minors); intersection = high precision.",
+    "mode": "union",
+    "agreement_bonus": 0.12,
+    "max_agreement_bonus": 0.3,
+    "merge_adjacent_gap": 2,
+    "prefer": "longest_then_priority",
+    "promote_specific_over_generic": true,
+    "drop_unmapped": true
+  },
+  "quasi": {
+    "enabled": true,
+    "window_chars": 600,
+    "combination_threshold": 2,
+    "age_bucket_size": 3,
+    "generalize_on_combination": true,
+    "risky_combinations": [
+      [
+        "EXACT_AGE",
+        "SCHOOL_NAME"
+      ],
+      [
+        "EXACT_AGE",
+        "SPORTS_TEAM"
+      ],
+      [
+        "EXACT_AGE",
+        "NEIGHBORHOOD"
+      ],
+      [
+        "OCCUPATION",
+        "NEIGHBORHOOD"
+      ],
+      [
+        "OCCUPATION",
+        "LOCAL_LANDMARK"
+      ],
+      [
+        "SPORTS_TEAM",
+        "LOCAL_LANDMARK"
+      ],
+      [
+        "MEDICAL_CONDITION",
+        "SCHOOL_NAME"
+      ],
+      [
+        "UNIQUE_EVENT",
+        "NEIGHBORHOOD"
+      ],
+      [
+        "CLASS_NAME",
+        "SCHOOL_NAME"
+      ]
+    ]
+  },
+  "surrogates": {
+    "_scope": "per_turn | per_conversation",
+    "scope": "per_conversation",
+    "style": "placeholder",
+    "_style": "placeholder = <CHILD_01>; surrogate = a realistic fake name",
+    "keep_mapping": false,
+    "hmac_key_env": "KRYPTOS_HMAC_KEY",
+    "role_aware": true,
+    "number_width": 2
+  },
+  "qa": {
+    "enabled": true,
+    "rescan": true,
+    "fail_closed": true,
+    "block_on": [
+      "known_value_leak",
+      "direct_entity_residual",
+      "digit_run_residual",
+      "unreplaced_span"
+    ],
+    "warn_on": [
+      "quasi_residual",
+      "low_asr_confidence",
+      "unmapped_labels"
+    ],
+    "max_residual_direct": 0,
+    "min_asr_confidence": 0.5,
+    "digit_run_length": 6,
+    "capitalized_token_audit": true
+  },
+  "audio": {
+    "enabled": true,
+    "pad_seconds": 0.12,
+    "mode": "mute",
+    "_mode": "mute | beep | replace_tts"
+  },
+  "runtime": {
+    "strict_detectors": true,
+    "parallel_detectors": false
+  }
+}

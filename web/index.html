@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; connect-src 'self' https://cdn.jsdelivr.net; worker-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Kryptos — transcript de-identification</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <a class="brand" href="./" aria-label="Kryptos home"
+          ><span class="mark" aria-hidden="true">K</span>Kryptos</a
+        >
+        <nav aria-label="Project links">
+          <a
+            href="https://github.com/theaitoycompany/Kryptos#quick-start"
+            target="_blank"
+            rel="noreferrer"
+            >Use in Python ↗</a
+          >
+          <a
+            href="https://github.com/theaitoycompany/Kryptos"
+            target="_blank"
+            rel="noreferrer"
+            >Source ↗</a
+          >
+        </nav>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="title">
+          <div>
+            <p class="eyebrow">Open-source transcript de-identification</p>
+            <h1 id="title">
+              Keep the conversation.<br /><span>Remove the identifiers.</span>
+            </h1>
+            <p class="lede">
+              Replace personal details with consistent placeholders.<br
+                class="desktop"
+              />
+              Try a synthetic example, then inspect what changed.
+            </p>
+          </div>
+          <div class="privacy-note">
+            <span class="privacy-icon" aria-hidden="true">↳</span>
+            <div>
+              <strong>Runs on your device</strong>
+              <p>
+                Your text stays in this browser.<br />No upload. No remote
+                inference.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="toolbar">
+          <label for="example">Try an example</label>
+          <select id="example">
+            <option value="family">Names &amp; contact details</option>
+            <option value="asr">Spoken identifiers</option>
+            <option value="context">Details that need review</option>
+          </select>
+          <span id="engine" role="status">Loading local engine…</span>
+        </div>
+
+        <form id="form">
+          <div class="editors">
+            <section class="editor input-panel">
+              <div class="panel-heading">
+                <label for="input">Original transcript</label
+                ><span id="count">0 / 6,000</span>
+              </div>
+              <textarea
+                id="input"
+                maxlength="6000"
+                spellcheck="false"
+                aria-describedby="input-help"
+              ></textarea>
+              <p id="input-help" class="panel-note">
+                Plain text, with optional speaker labels.
+              </p>
+            </section>
+            <section
+              class="editor output-panel"
+              aria-label="De-identified result"
+            >
+              <div class="panel-heading">
+                <h2>De-identified transcript</h2>
+                <span id="verdict" class="badge">Ready to inspect</span>
+              </div>
+              <pre id="output" aria-live="polite">
+Your result will appear here.</pre
+              >
+              <div class="result-footer">
+                <span id="summary"
+                  >Names, contact details, and contextual clues.</span
+                ><button id="copy" type="button" disabled>Copy text</button>
+              </div>
+            </section>
+          </div>
+
+          <details class="known">
+            <summary>
+              Known identifiers
+              <span
+                >Optional · improve detection with values you already know</span
+              >
+            </summary>
+            <label for="known">JSON object of entity labels and values</label>
+            <textarea id="known" maxlength="4000" spellcheck="false">
+{"CHILD_NAME": ["Aisha"], "SCHOOL_NAME": ["Greenfield School"]}</textarea
+            >
+            <p>
+              Example:
+              <code
+                >{"CHILD_NAME": ["Aisha"], "EMAIL":
+                ["parent@example.com"]}</code
+              >
+            </p>
+          </details>
+
+          <div class="actions">
+            <div>
+              <button id="run" class="primary" type="submit" disabled>
+                De-identify text <span aria-hidden="true">→</span></button
+              ><button id="clear" type="button">Clear all</button>
+            </div>
+            <label class="review-toggle"
+              ><input id="allow-review" type="checkbox" /> Show text marked for
+              review</label
+            >
+          </div>
+          <p id="feedback" role="status" class="feedback"></p>
+        </form>
+
+        <aside class="limitations">
+          <strong>A check is a signal, not a guarantee.</strong>
+          <p>
+            This demo uses rules and known-value matching. It can miss
+            identifiers or remove ordinary words. Review results before sharing.
+            <a
+              href="https://github.com/theaitoycompany/Kryptos/blob/main/docs/BENCHMARKS.md"
+              target="_blank"
+              rel="noreferrer"
+              >See benchmark results ↗</a
+            >
+          </p>
+        </aside>
+      </main>
+      <footer>
+        <span>The AI Toy Company · Apache-2.0</span
+        ><span
+          >Local Python library · Optional model detectors · Reproducible
+          benchmarks</span
+        >
+      </footer>
+    </div>
+  </body>
+</html>

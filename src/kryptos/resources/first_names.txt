@@ -1,0 +1,83 @@
+# First-name gazetteer for lower-cased ASR transcripts.
+# Deliberately multicultural and deliberately incomplete: it is a recall aid,
+# never the primary name detector. Add local names for your population.
+aaliyah aaron abby abdul abdullah abigail abraham ada adam addison adele aden adam adrian
+agnes ahmad ahmed aidan aiden aisha aisling akira alan albert alberto alex alexa alexander
+alexandra alfie alfred ali alice alicia alina alison aliyah allan allison alma alvin amaan
+amanda amara amber amelia amina amir amira amos amy ana anaya anders andre andrea andres
+andrew angel angela angelo anika anita anjali ann anna annabelle anne annie anthony antonio
+anya april arash archie aria ariana arjun arlo armaan arnav arthur arun asha ashley asif
+asma astrid athena aubrey audrey august augustin aurora austin ava avery ayaan ayesha ayla
+ayesha ayo azra bailey barbara barry basim beatrice belinda bella ben benjamin bernard beth
+bethany betty beverly bianca bilal blake blessing bobby bonnie boris bradley brandon brenda
+brendan brett brian bridget britney brooke bruce bruno bryan caitlin caleb callum calvin
+cameron camila candace carl carla carlos carmen carol caroline carrie casey cassandra
+catherine cathy cecilia cedric celeste chad chandra charles charlie charlotte chase chelsea
+cheryl chris chloe christian christina christine christopher cindy claire clara clarence
+claude claudia clay clement cliff clive cody colin colleen connor conor constance cooper
+cora corey courtney craig cristina crystal curtis cynthia daisy dale damian damon dan dana
+daniel daniela danielle danny daphne darius darren darryl dave david dawn dean deborah declan
+dee deepak deirdre delia dennis denise derek desmond devi devin dexter dhruv diana diane
+diego dilara dima dimitri dina dinesh dionne divya dolores dominic don donald donna dora
+doreen doris dorothy douglas duncan dylan eamon earl ebony eddie eden edgar edith edmund
+eduardo edward edwin efe eileen elaine eleanor elena eli elias elif elijah elin elise eliza
+elizabeth ella ellen ellie elliot elliott elmer eloise elsa elsie elvis emerson emil emilia
+emily emma emmanuel emre enid enzo eric erica erik erin ernest esme esperanza esther ethan
+ethel eugene eunice eva evan evelyn ezra fabian fahad faisal faith farah farhan farhana
+farida fatima felicity felix fergus fernanda fernando fiona flora florence floyd forrest
+frances francesca francis francisco frank franklin fred freddie frederick freya gabriel
+gabriela gail gareth garry gary gavin gemma gene genevieve george georgia georgina gerald
+geraldine gerard gianna gideon gilbert gillian gina giovanni gladys glenn gloria godwin
+gordon grace gracie graham grant greg gregory greta griffin guadalupe gulnara gurpreet
+gustavo guy gwen hadiya hafsa hailey haley hamid hamza hana hank hannah hans harold harper
+harriet harry harun hasan hassan hattie hayden hazel heather hector heidi helen helena
+henry herbert herman hilary hilda hiroshi hollie holly hope horace howard hudson hugh hugo
+humza hunter husna hussain ian ibrahim ida idris ifeoma ignacio ilya imani iman imran ina
+indira ines ingrid ioana irene iris irfan irina isaac isabel isabella isabelle isaiah isla
+ismail israel ivan ivy jack jackie jackson jacob jacqueline jade jaden jai jaime jake james
+jamie jan jane janet janice jared jasmine jason javier jay jayden jean jeanette jeff jeffrey
+jenna jennifer jenny jeremy jerome jerry jess jessica jesus jill jim jimmy jo joan joanna
+joanne joaquin jodie joe joel john johnny jolene jon jonah jonas jonathan jordan jorge jose
+joseph josephine josh joshua josiah joy joyce juan juanita judith judy julia julian julie
+juliet june junior justin kabir kaden kai kaitlyn kaleb kamal kamila kane kara karen karim
+karina karl karla kate katherine kathleen kathryn kathy katie katrina kayla kayleigh keegan
+keira keith kelly kelvin ken kendra kenneth kenny kerry kevin khadija khaled kian kiara kim
+kimberly kingsley kiran kirsten kofi kojo konrad krishna kristen kristin krystal kurt kwame
+kyle kylie lacey lakshmi lana lance lara larry laura lauren laurence lavender lawrence layla
+leah leandro lee leila lena lenny leo leon leona leonard leonie leroy leslie lester lewis
+lexi liam lidia lila lilian lillian lily lina linda lindsay lionel lisa liu liv livia liz
+lloyd logan lois lola lorenzo loretta lori lorna louis louise lucas lucia lucy luis luka
+lukas luke luna lydia lyle lynn mabel mackenzie madeline madison mae maeve magdalena maggie
+mahmoud maisie malachi malak malcolm malik mandy manuel marco marcus margaret maria mariam
+marian marianne marie marilyn mario marion marisa mark marlene marsha martha martin marvin
+mary maryam mason mateo matias matilda matthew maureen maurice max maxine maya mccarthy
+meera megan mehmet mei melanie melissa melvin mercy meredith mia micah michael michaela
+michelle miguel mike mila milan miles millie milo mina mira miranda miriam mitchell moana
+mohammad mohammed mohan moira molly mona monica monique morgan moses muhammad murad murat
+murray musa mustafa myra nadia nadine nafisa nahla naima najma nancy naomi nasir natalia
+natalie natasha nathan nathaniel navid neal ned neel neha neil nelson nena nia niall nicholas
+nick nicola nicole nigel nikhil nikita niko nina noah noel noelle nolan nora norah norman
+nur nuria oakley obi octavia odette ola olga olive oliver olivia omar omid opal ophelia
+oscar osman otis otto owen pablo padma paige palmer pamela paolo parvati pascal pat patricia
+patrick paul paula paulina payton pearl pedro peggy penelope penny percy perry pete peter
+petra philip phillip phoebe phoenix pia pierre piotr polly poppy portia prakash pranav
+preeti preston priya quentin quinn rachel radha rafael rafiq rahul raj rajesh ralph ramona
+ramesh randy raphael raquel rashid raul ravi ray raymond rayyan reagan rebecca reece reed
+regina reginald rehan reid rekha remy rena renee reuben rex rhea rhiannon rhys ricardo
+richard rick ricky rita river robert roberta robin rocco rodney roger roland roman romeo
+ronald ronan rosa rosalie rose rosemary ross rowan roxanne roy ruben ruby rudy rufus rukhsana
+rupa russell ruth ryan sabrina sadie safa saira sally salma sam samantha samir samira samuel
+sana sandra sandy sanjay santiago sara sarah sasha saul savannah scarlett scott sean sebastian
+selena selim selina serena serge sergio seth shane shania shannon sharon shaun shawn sheila
+shelby sheldon shelly sherry shirley shivani sidney siena sienna sierra silas simon simone
+sinead siobhan skye sofia solomon sonia sonya sophia sophie spencer stacey stanley stella
+stephanie stephen steve steven stewart stuart sue sultan suman summer sunil susan susanna
+sydney sylvia tabitha tahir talia tamara tammy tania tanya tara tariq tasha tatiana taylor
+ted teddy terence teresa terrence terry tess tessa thandiwe thea thelma theo theodore theresa
+thomas tia tiffany tim timothy tina tobias toby todd tom tommy toni tony tracy travis trevor
+tricia trinity tristan troy tyler tyrone uma umar urvashi usman valentina valerie vanessa
+vera veronica vicky victor victoria vijay vikram vince vincent viola violet virginia vivian
+vivienne wade wallace walter wanda warren wayne wendy wesley whitney wilbur wiley wilfred
+will willa william willie willow wilson winifred winston wyatt xavier xiomara yara yasmin
+yasmine yolanda yousef youssef yuki yusuf yvette yvonne zac zach zachary zahra zaid zainab
+zak zane zara zaynab zeynep zoe zoey zoya
