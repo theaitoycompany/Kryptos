@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   python:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         python: ['3.11', '3.12', '3.13']
@@ -22,6 +22,7 @@ jobs:
       - run: uv sync --locked --python ${{ matrix.python }}
       - run: uv run --locked ruff check src tests benchmarks scripts
       - run: uv run --locked ruff format --check src tests benchmarks scripts
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - run: uv run --locked python -m unittest discover -s tests -q
       - run: uv run --locked kryptos selftest
       - run: uv run --locked python scripts/check_release.py
@@ -32,7 +33,7 @@ jobs:
       - run: uv run --locked python -m benchmarks.run --profile core --output .build/core.json
 
   browser:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
@@ -41,5 +42,5 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run format:check
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm test

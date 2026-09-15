@@ -1,8 +1,7 @@
 """Apply resolved spans to the document.
 
 Replacement happens once, right-to-left, on the original text, so offsets stay
-valid throughout.  Turn boundaries are respected: a span is clamped to the
-turn it starts in, which keeps the per-turn reconstruction exact.
+valid throughout. Detections crossing turns are split across every affected turn.
 """
 
 from __future__ import annotations
@@ -28,7 +27,7 @@ SPEAKER_ROLE_ENTITY = {
 
 def transform(
     doc: Document, spans: list[Span], allocator: SurrogateAllocator, config: Config
-) -> tuple[str, list[dict[str, Any]], dict[str, str]]:
+) -> tuple[str, list[dict[str, Any]], dict[int, str]]:
     """Return (sanitized_text, sanitized_turns, speaker_label_map)."""
     spans[:] = _clamp_to_turns(doc, spans)
     # Speaker labels are allocated first, and through the same allocator, for
@@ -67,7 +66,7 @@ def transform(
         )
         turns_out.append(
             {
-                "speaker": speaker_map.get(turn.speaker, turn.speaker),
+                "speaker": speaker_map[turn.index],
                 "role": turn.role,
                 "text": text,
                 "start": turn.start,
@@ -137,15 +136,13 @@ def _self_introductions(doc: Document, spans: list[Span]) -> dict[str, str]:
 
 def _speaker_labels(
     doc: Document, allocator: SurrogateAllocator, config: Config, spans: list[Span]
-) -> dict[str, str]:
+) -> dict[int, str]:
     """Speaker labels are themselves identifiers ('AISHA:', 'MUM:')."""
     roles = doc.meta.get("speaker_roles", {})
     known = doc.meta.get("_participants") or doc.meta.get("known_values") or {}
     introduced = _self_introductions(doc, spans)
-    mapping: dict[str, str] = {}
+    mapping: dict[int, str] = {}
     for turn in doc.turns:
-        if turn.speaker in mapping:
-            continue
         role = roles.get(turn.speaker, turn.role or "unknown")
         entity = SPEAKER_ROLE_ENTITY.get(role, "SPEAKER")
         key = _speaker_key(turn.speaker, entity, known)
@@ -162,7 +159,7 @@ def _speaker_labels(
             speaker=turn.speaker,
             turn_index=turn.index,
         )
-        mapping[turn.speaker] = allocator.pseudonym(synthetic)
+        mapping[turn.index] = allocator.pseudonym(synthetic)
     return mapping
 
 

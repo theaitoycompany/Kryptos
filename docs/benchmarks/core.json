@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "synthetic_only": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "profile": "core",
   "device": "cpu",
   "seed": 20260915,
@@ -14,7 +14,7 @@
     "gliner": "0.2.24",
     "rapidfuzz": "3.14.6"
   },
-  "source_sha256": "e1238ec563d0493af45f71930dfdd78a101be6cedb099eb4fe89abf4828ca2a0",
+  "source_sha256": "e545f4915e6691ed759281271f649000b9035d8fba59cccec774e4af715eaeb3",
   "corpus_sha256": "ad09e8d8d207898538e234ce412aa3d80c6501eb752e2f3db5ad6dc5c5403ece",
   "detectors": [
     {
@@ -51,7 +51,7 @@
       "backbone_revision": ""
     }
   ],
-  "model_load_seconds": 0.012,
+  "model_load_seconds": 0.011,
   "results": {
     "written/no_known": {
       "documents": 120,
@@ -106,15 +106,6 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "HOME_ADDRESS": {
-          "tp": 0,
-          "fp": 20,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -124,10 +115,10 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "FRIEND_NAME": {
+        "HOME_ADDRESS": {
           "tp": 0,
-          "fp": 0,
-          "fn": 40,
+          "fp": 20,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -137,6 +128,15 @@
           "tp": 0,
           "fp": 20,
           "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "FRIEND_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 40,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -196,7 +196,7 @@
           "f1": 0.9744,
           "f2": 0.9596
         },
-        "MEDICAL_ID": {
+        "DATE_OF_BIRTH": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -205,16 +205,16 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "SCHOOL_NAME": {
-          "tp": 80,
-          "fp": 6,
+        "PHONE": {
+          "tp": 40,
+          "fp": 0,
           "fn": 0,
-          "precision": 0.9302,
+          "precision": 1.0,
           "recall": 1.0,
-          "f1": 0.9639,
-          "f2": 0.9852
+          "f1": 1.0,
+          "f2": 1.0
         },
-        "DATE_OF_BIRTH": {
+        "MEDICAL_ID": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -232,24 +232,6 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "EMAIL": {
-          "tp": 40,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PHONE": {
-          "tp": 40,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
         "SIBLING_NAME": {
           "tp": 40,
           "fp": 0,
@@ -259,7 +241,34 @@
           "f1": 1.0,
           "f2": 1.0
         },
+        "EMAIL": {
+          "tp": 40,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 80,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.9302,
+          "recall": 1.0,
+          "f1": 0.9639,
+          "f2": 0.9852
+        },
         "LOCAL_LANDMARK": {
+          "tp": 40,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "PARENT_WORKPLACE": {
           "tp": 40,
           "fp": 0,
           "fn": 0,
@@ -277,16 +286,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PARENT_WORKPLACE": {
-          "tp": 40,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "STUDENT_ID": {
+        "POSTCODE": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -304,7 +304,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "POSTCODE": {
+        "STUDENT_ID": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -380,9 +380,9 @@
       "passed_with_uncovered_direct_span": 11,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "f8a1fc5857891efa2f5f61d39edaf9920a9b3d512239f186a209041e556d95ad",
-      "latency_ms_p50": 1.117,
-      "latency_ms_p95": 1.585,
-      "characters_per_second": 212380.4
+      "latency_ms_p50": 1.187,
+      "latency_ms_p95": 1.744,
+      "characters_per_second": 194991.5
     },
     "written/known": {
       "documents": 120,
@@ -428,6 +428,15 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "HOME_ADDRESS": {
           "tp": 0,
           "fp": 20,
@@ -446,10 +455,10 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "CLASS_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 20,
+          "fp": 20,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -459,15 +468,6 @@
           "tp": 0,
           "fp": 0,
           "fn": 40,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CLASS_NAME": {
-          "tp": 0,
-          "fp": 20,
-          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -554,7 +554,7 @@
           "f1": 0.908,
           "f2": 0.9541
         },
-        "MEDICAL_ID": {
+        "DATE_OF_BIRTH": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -563,16 +563,16 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "CHILD_NAME": {
-          "tp": 120,
-          "fp": 5,
+        "PHONE": {
+          "tp": 40,
+          "fp": 0,
           "fn": 0,
-          "precision": 0.96,
+          "precision": 1.0,
           "recall": 1.0,
-          "f1": 0.9796,
-          "f2": 0.9917
+          "f1": 1.0,
+          "f2": 1.0
         },
-        "DATE_OF_BIRTH": {
+        "MEDICAL_ID": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -590,25 +590,25 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "EMAIL": {
-          "tp": 40,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PHONE": {
-          "tp": 40,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
         "SIBLING_NAME": {
+          "tp": 40,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 120,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.96,
+          "recall": 1.0,
+          "f1": 0.9796,
+          "f2": 0.9917
+        },
+        "EMAIL": {
           "tp": 40,
           "fp": 0,
           "fn": 0,
@@ -626,7 +626,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "STUDENT_ID": {
+        "POSTCODE": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -644,7 +644,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "POSTCODE": {
+        "STUDENT_ID": {
           "tp": 20,
           "fp": 0,
           "fn": 0,
@@ -711,9 +711,9 @@
       "passed_with_uncovered_direct_span": 11,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "a5acaca02ef238f449a6b53b26f1ffc7f108086afe26f782f25269c2d6fed4b3",
-      "latency_ms_p50": 5.559,
-      "latency_ms_p95": 8.717,
-      "characters_per_second": 42735.3
+      "latency_ms_p50": 5.93,
+      "latency_ms_p95": 9.584,
+      "characters_per_second": 39948.8
     },
     "asr/no_known": {
       "documents": 120,
@@ -777,6 +777,15 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "ACCOUNT_ID": {
           "tp": 0,
           "fp": 20,
@@ -795,10 +804,10 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "CLASS_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 20,
+          "fp": 20,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -816,15 +825,6 @@
         "PERSON_NAME": {
           "tp": 0,
           "fp": 69,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CLASS_NAME": {
-          "tp": 0,
-          "fp": 20,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
@@ -876,33 +876,6 @@
           "f1": 0.8571,
           "f2": 0.7895
         },
-        "EMAIL": {
-          "tp": 40,
-          "fp": 5,
-          "fn": 0,
-          "precision": 0.8889,
-          "recall": 1.0,
-          "f1": 0.9412,
-          "f2": 0.9756
-        },
-        "SCHOOL_NAME": {
-          "tp": 80,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.9302,
-          "recall": 1.0,
-          "f1": 0.9639,
-          "f2": 0.9852
-        },
-        "PHONE": {
-          "tp": 40,
-          "fp": 29,
-          "fn": 0,
-          "precision": 0.5797,
-          "recall": 1.0,
-          "f1": 0.7339,
-          "f2": 0.8734
-        },
         "SIBLING_NAME": {
           "tp": 40,
           "fp": 0,
@@ -921,6 +894,24 @@
           "f1": 1.0,
           "f2": 1.0
         },
+        "EMAIL": {
+          "tp": 40,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.8889,
+          "recall": 1.0,
+          "f1": 0.9412,
+          "f2": 0.9756
+        },
+        "PHONE": {
+          "tp": 40,
+          "fp": 29,
+          "fn": 0,
+          "precision": 0.5797,
+          "recall": 1.0,
+          "f1": 0.7339,
+          "f2": 0.8734
+        },
         "EXACT_AGE": {
           "tp": 80,
           "fp": 0,
@@ -929,6 +920,15 @@
           "recall": 1.0,
           "f1": 1.0,
           "f2": 1.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 80,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.9302,
+          "recall": 1.0,
+          "f1": 0.9639,
+          "f2": 0.9852
         },
         "LOCAL_LANDMARK": {
           "tp": 40,
@@ -948,15 +948,6 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "STUDENT_ID": {
-          "tp": 20,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
         "STREET_ADDRESS": {
           "tp": 40,
           "fp": 5,
@@ -965,6 +956,15 @@
           "recall": 1.0,
           "f1": 0.9412,
           "f2": 0.9756
+        },
+        "STUDENT_ID": {
+          "tp": 20,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         },
         "ONLINE_USERNAME": {
           "tp": 20,
@@ -1032,9 +1032,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "14942675a9b2319448762922d812bc085d387abe677ecedfa81518446e3f6557",
-      "latency_ms_p50": 1.132,
-      "latency_ms_p95": 1.834,
-      "characters_per_second": 241435.9
+      "latency_ms_p50": 1.222,
+      "latency_ms_p95": 1.924,
+      "characters_per_second": 226366.2
     },
     "asr/known": {
       "documents": 120,
@@ -1098,6 +1098,15 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "ACCOUNT_ID": {
           "tp": 0,
           "fp": 20,
@@ -1116,10 +1125,10 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "CLASS_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 20,
+          "fp": 20,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -1137,15 +1146,6 @@
         "PERSON_NAME": {
           "tp": 0,
           "fp": 21,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CLASS_NAME": {
-          "tp": 0,
-          "fp": 20,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
@@ -1224,15 +1224,6 @@
           "f1": 0.9176,
           "f2": 0.9512
         },
-        "SCHOOL_NAME": {
-          "tp": 80,
-          "fp": 20,
-          "fn": 0,
-          "precision": 0.8,
-          "recall": 1.0,
-          "f1": 0.8889,
-          "f2": 0.9524
-        },
         "DATE_OF_BIRTH": {
           "tp": 20,
           "fp": 0,
@@ -1269,6 +1260,15 @@
           "f1": 1.0,
           "f2": 1.0
         },
+        "SCHOOL_NAME": {
+          "tp": 80,
+          "fp": 20,
+          "fn": 0,
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.8889,
+          "f2": 0.9524
+        },
         "LOCAL_LANDMARK": {
           "tp": 40,
           "fp": 0,
@@ -1287,15 +1287,6 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "STUDENT_ID": {
-          "tp": 20,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
         "STREET_ADDRESS": {
           "tp": 40,
           "fp": 5,
@@ -1304,6 +1295,15 @@
           "recall": 1.0,
           "f1": 0.9412,
           "f2": 0.9756
+        },
+        "STUDENT_ID": {
+          "tp": 20,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         },
         "CLUB_NAME": {
           "tp": 20,
@@ -1353,9 +1353,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "e8cba7e4294363292c8b5a716e056fa3bd6e6b137d694c5f7256562b1fc44a8d",
-      "latency_ms_p50": 6.458,
-      "latency_ms_p95": 11.801,
-      "characters_per_second": 40562.6
+      "latency_ms_p50": 6.381,
+      "latency_ms_p95": 12.173,
+      "characters_per_second": 40786.7
     },
     "negative/no_known": {
       "documents": 40,
@@ -1403,8 +1403,8 @@
       "negative_redacted_character_fraction": 0.0,
       "output_sha256_without_timings": "389386631c6929c4b2b685e8b7d22cb6220fed2c1bb314af489534b849d06fc3",
       "latency_ms_p50": 1.295,
-      "latency_ms_p95": 1.537,
-      "characters_per_second": 253202.4
+      "latency_ms_p95": 1.531,
+      "characters_per_second": 255746.5
     },
     "negative/known": {
       "documents": 40,
@@ -1451,9 +1451,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": 0.0,
       "output_sha256_without_timings": "389386631c6929c4b2b685e8b7d22cb6220fed2c1bb314af489534b849d06fc3",
-      "latency_ms_p50": 1.3,
-      "latency_ms_p95": 1.536,
-      "characters_per_second": 256338.8
+      "latency_ms_p50": 1.31,
+      "latency_ms_p95": 1.518,
+      "characters_per_second": 257404.8
     },
     "en_clean/no_known": {
       "documents": 12,
@@ -1490,25 +1490,7 @@
         }
       },
       "by_entity": {
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "PERSON_NAME": {
-          "tp": 0,
-          "fp": 12,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "HOME_ADDRESS": {
           "tp": 0,
           "fp": 12,
           "fn": 0,
@@ -1526,34 +1508,25 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 0,
+        "HOME_ADDRESS": {
+          "tp": 0,
+          "fp": 12,
           "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
         },
-        "PARENT_NAME": {
-          "tp": 12,
+        "CHILD_NAME": {
+          "tp": 0,
           "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
         },
         "TEACHER_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1571,16 +1544,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "DOCTOR_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "EMAIL": {
+        "PARENT_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1590,6 +1554,15 @@
           "f2": 1.0
         },
         "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1608,6 +1581,33 @@
           "f2": 1.0
         },
         "EXACT_AGE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "EMAIL": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "DOCTOR_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SCHOOL_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1646,9 +1646,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "3d14e8be8c995fa80f3c5f6a45dcec2dc6b53b6ad934d26ae16ade1ac566e850",
-      "latency_ms_p50": 1.669,
-      "latency_ms_p95": 1.74,
-      "characters_per_second": 197567.3
+      "latency_ms_p50": 1.631,
+      "latency_ms_p95": 1.662,
+      "characters_per_second": 200492.3
     },
     "en_clean/known": {
       "documents": 12,
@@ -1685,15 +1685,6 @@
         }
       },
       "by_entity": {
-        "HOME_ADDRESS": {
-          "tp": 0,
-          "fp": 12,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -1703,43 +1694,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 0,
+        "HOME_ADDRESS": {
+          "tp": 0,
+          "fp": 12,
           "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 7,
-          "fn": 0,
-          "precision": 0.6316,
-          "recall": 1.0,
-          "f1": 0.7742,
-          "f2": 0.8955
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
         },
         "TEACHER_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1757,25 +1721,25 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "DOCTOR_NAME": {
+        "PARENT_NAME": {
           "tp": 12,
-          "fp": 0,
+          "fp": 7,
           "fn": 0,
-          "precision": 1.0,
+          "precision": 0.6316,
           "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "EMAIL": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "f1": 0.7742,
+          "f2": 0.8955
         },
         "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1794,6 +1758,42 @@
           "f2": 1.0
         },
         "EXACT_AGE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "EMAIL": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "DOCTOR_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SCHOOL_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1832,9 +1832,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "458f3c81da5567d5024d32e2927e3e0a94003dfef9619706a84c056aa06ee31a",
-      "latency_ms_p50": 7.705,
-      "latency_ms_p95": 8.425,
-      "characters_per_second": 42161.6
+      "latency_ms_p50": 7.837,
+      "latency_ms_p95": 8.309,
+      "characters_per_second": 41855.5
     },
     "en_asr/no_known": {
       "documents": 12,
@@ -1871,19 +1871,19 @@
         }
       },
       "by_entity": {
-        "CHILD_NAME": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 11,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "PERSON_NAME": {
+        "CHILD_NAME": {
           "tp": 0,
-          "fp": 11,
-          "fn": 0,
+          "fp": 0,
+          "fn": 12,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -1898,34 +1898,7 @@
           "f1": 0.5882,
           "f2": 0.4717
         },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
         "TEACHER_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1943,7 +1916,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "EMAIL": {
+        "PARENT_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1953,6 +1926,24 @@
           "f2": 1.0
         },
         "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CITY": {
+          "tp": 12,
+          "fp": 12,
+          "fn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "f2": 0.8333
+        },
+        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -1979,14 +1970,23 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "CITY": {
+        "EMAIL": {
           "tp": 12,
-          "fp": 12,
+          "fp": 0,
           "fn": 0,
-          "precision": 0.5,
+          "precision": 1.0,
           "recall": 1.0,
-          "f1": 0.6667,
-          "f2": 0.8333
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         }
       },
       "by_tier": {
@@ -2018,9 +2018,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "08daa82ea0830c988c82d1b14a2fbd3d36891d0f2b0bf0e1acdc0fb37ade2ec7",
-      "latency_ms_p50": 1.682,
-      "latency_ms_p95": 1.77,
-      "characters_per_second": 241549.2
+      "latency_ms_p50": 1.685,
+      "latency_ms_p95": 1.727,
+      "characters_per_second": 242054.0
     },
     "en_asr/known": {
       "documents": 12,
@@ -2075,43 +2075,7 @@
           "f1": 0.5882,
           "f2": 0.4717
         },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 4,
-          "fn": 0,
-          "precision": 0.75,
-          "recall": 1.0,
-          "f1": 0.8571,
-          "f2": 0.9375
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.6667,
-          "recall": 1.0,
-          "f1": 0.8,
-          "f2": 0.9091
-        },
         "TEACHER_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -2129,7 +2093,16 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "EMAIL": {
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "f2": 0.9091
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -2138,7 +2111,16 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "CITY": {
+          "tp": 12,
+          "fp": 12,
+          "fn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "f2": 0.8333
+        },
+        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -2165,14 +2147,32 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "CITY": {
+        "CHILD_NAME": {
           "tp": 12,
-          "fp": 12,
+          "fp": 4,
           "fn": 0,
-          "precision": 0.5,
+          "precision": 0.75,
           "recall": 1.0,
-          "f1": 0.6667,
-          "f2": 0.8333
+          "f1": 0.8571,
+          "f2": 0.9375
+        },
+        "EMAIL": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         }
       },
       "by_tier": {
@@ -2204,9 +2204,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "1571039a43d8ad73d66cee828060b9befa197188836d7eff00f3da20e0dea47d",
-      "latency_ms_p50": 9.998,
-      "latency_ms_p95": 10.858,
-      "characters_per_second": 40747.5
+      "latency_ms_p50": 9.796,
+      "latency_ms_p95": 10.524,
+      "characters_per_second": 41081.3
     },
     "es_clean/no_known": {
       "documents": 12,
@@ -2243,69 +2243,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 146,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -2324,7 +2261,61 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PRECISE_DATE": {
+          "tp": 0,
+          "fp": 12,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -2342,10 +2333,19 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PRECISE_DATE": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 12,
+          "fp": 146,
           "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -2371,15 +2371,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 22,
-          "fp": 146,
-          "fn": 98,
-          "precision": 0.131,
-          "recall": 0.1833,
-          "f1": 0.1528,
-          "f2": 0.1698
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -2388,6 +2379,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 22,
+          "fp": 146,
+          "fn": 98,
+          "precision": 0.131,
+          "recall": 0.1833,
+          "f1": 0.1528,
+          "f2": 0.1698
         }
       },
       "direct_identifier_documents": 12,
@@ -2399,9 +2399,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "96fce68b3e0ad23febd9214082bb0891d37341d0bd31b3d3d99e19bca6e06657",
-      "latency_ms_p50": 2.616,
-      "latency_ms_p95": 2.77,
-      "characters_per_second": 139182.9
+      "latency_ms_p50": 2.521,
+      "latency_ms_p95": 2.725,
+      "characters_per_second": 144859.7
     },
     "es_clean/known": {
       "documents": 12,
@@ -2447,19 +2447,10 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PERSON_NAME": {
+        "PRECISE_DATE": {
           "tp": 0,
-          "fp": 110,
+          "fp": 12,
           "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -2474,16 +2465,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PRECISE_DATE": {
+        "PHONE": {
           "tp": 0,
-          "fp": 12,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 110,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "PHONE": {
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -2510,15 +2519,6 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DOCTOR_NAME": {
           "tp": 10,
           "fp": 0,
@@ -2527,24 +2527,6 @@
           "recall": 0.8333,
           "f1": 0.9091,
           "f2": 0.8621
-        },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 4,
-          "fn": 0,
-          "precision": 0.75,
-          "recall": 1.0,
-          "f1": 0.8571,
-          "f2": 0.9375
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.6667,
-          "recall": 1.0,
-          "f1": 0.8,
-          "f2": 0.9091
         },
         "PARENT_NAME": {
           "tp": 12,
@@ -2555,6 +2537,15 @@
           "f1": 0.75,
           "f2": 0.8824
         },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "f2": 0.9091
+        },
         "EMAIL": {
           "tp": 12,
           "fp": 0,
@@ -2563,6 +2554,15 @@
           "recall": 1.0,
           "f1": 1.0,
           "f2": 1.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 12,
+          "fp": 4,
+          "fn": 0,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "f2": 0.9375
         }
       },
       "by_tier": {
@@ -2594,9 +2594,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "3f15e9232d6d590e7f3012d81423a9988d445f80afbb241b701753ea18af9c89",
-      "latency_ms_p50": 8.505,
-      "latency_ms_p95": 8.87,
-      "characters_per_second": 43258.8
+      "latency_ms_p50": 8.55,
+      "latency_ms_p95": 8.652,
+      "characters_per_second": 43494.2
     },
     "es_asr/no_known": {
       "documents": 12,
@@ -2633,60 +2633,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 54,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -2705,7 +2651,43 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -2723,6 +2705,24 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 54,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
           "tp": 10,
           "fp": 0,
@@ -2732,7 +2732,7 @@
           "f1": 0.9091,
           "f2": 0.8621
         },
-        "EMAIL": {
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -2741,7 +2741,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -2752,15 +2752,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 34,
-          "fp": 54,
-          "fn": 86,
-          "precision": 0.3864,
-          "recall": 0.2833,
-          "f1": 0.3269,
-          "f2": 0.2993
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -2769,6 +2760,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 34,
+          "fp": 54,
+          "fn": 86,
+          "precision": 0.3864,
+          "recall": 0.2833,
+          "f1": 0.3269,
+          "f2": 0.2993
         }
       },
       "direct_identifier_documents": 12,
@@ -2780,9 +2780,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "c1ff2ea4f0c9ffdfa85eabf93baea97d4e443206d89a8abc46a2c98ea09a0631",
-      "latency_ms_p50": 1.838,
-      "latency_ms_p95": 1.884,
-      "characters_per_second": 243730.6
+      "latency_ms_p50": 1.787,
+      "latency_ms_p95": 1.92,
+      "characters_per_second": 247321.7
     },
     "es_asr/known": {
       "documents": 12,
@@ -2828,6 +2828,15 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "PERSON_NAME": {
           "tp": 0,
           "fp": 26,
@@ -2837,7 +2846,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "STREET_ADDRESS": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -2846,7 +2855,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -2873,15 +2882,6 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DOCTOR_NAME": {
           "tp": 10,
           "fp": 0,
@@ -2890,24 +2890,6 @@
           "recall": 0.8333,
           "f1": 0.9091,
           "f2": 0.8621
-        },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 4,
-          "fn": 0,
-          "precision": 0.75,
-          "recall": 1.0,
-          "f1": 0.8571,
-          "f2": 0.9375
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 13,
-          "fn": 0,
-          "precision": 0.48,
-          "recall": 1.0,
-          "f1": 0.6486,
-          "f2": 0.8219
         },
         "PARENT_NAME": {
           "tp": 12,
@@ -2918,6 +2900,24 @@
           "f1": 0.75,
           "f2": 0.8824
         },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 13,
+          "fn": 0,
+          "precision": 0.48,
+          "recall": 1.0,
+          "f1": 0.6486,
+          "f2": 0.8219
+        },
         "EMAIL": {
           "tp": 12,
           "fp": 0,
@@ -2927,14 +2927,14 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "SCHOOL_NAME": {
           "tp": 12,
-          "fp": 0,
+          "fp": 4,
           "fn": 0,
-          "precision": 1.0,
+          "precision": 0.75,
           "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "f1": 0.8571,
+          "f2": 0.9375
         }
       },
       "by_tier": {
@@ -2966,9 +2966,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "3103c0ece5e48128a78b270a037d7b8116694cf4f38ada3df4edc1d6a99fa22f",
-      "latency_ms_p50": 9.979,
-      "latency_ms_p95": 10.534,
-      "characters_per_second": 44244.0
+      "latency_ms_p50": 9.684,
+      "latency_ms_p95": 9.997,
+      "characters_per_second": 45910.7
     },
     "fr_clean/no_known": {
       "documents": 12,
@@ -3005,25 +3005,7 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3041,9 +3023,9 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PERSON_NAME": {
+        "PRECISE_DATE": {
           "tp": 0,
-          "fp": 156,
+          "fp": 12,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
@@ -3051,15 +3033,6 @@
           "f2": 0.0
         },
         "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3077,6 +3050,33 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "EXACT_AGE": {
           "tp": 0,
           "fp": 0,
@@ -3086,16 +3086,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PRECISE_DATE": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 12,
+          "fp": 156,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3113,7 +3113,7 @@
           "f1": 0.4,
           "f2": 0.2941
         },
-        "EMAIL": {
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -3122,7 +3122,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -3133,15 +3133,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 27,
-          "fp": 156,
-          "fn": 93,
-          "precision": 0.1475,
-          "recall": 0.225,
-          "f1": 0.1782,
-          "f2": 0.2036
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -3150,6 +3141,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 27,
+          "fp": 156,
+          "fn": 93,
+          "precision": 0.1475,
+          "recall": 0.225,
+          "f1": 0.1782,
+          "f2": 0.2036
         }
       },
       "direct_identifier_documents": 12,
@@ -3161,9 +3161,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "60638a03c304cade9a884b93dd4ff0aa6753592b8a2a03fa0ae771c20bc17556",
-      "latency_ms_p50": 3.04,
-      "latency_ms_p95": 3.119,
-      "characters_per_second": 127918.3
+      "latency_ms_p50": 2.867,
+      "latency_ms_p95": 2.922,
+      "characters_per_second": 135590.1
     },
     "fr_clean/known": {
       "documents": 12,
@@ -3209,9 +3209,9 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PERSON_NAME": {
+        "PRECISE_DATE": {
           "tp": 0,
-          "fp": 120,
+          "fp": 12,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
@@ -3227,16 +3227,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PRECISE_DATE": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 12,
+          "fp": 120,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3263,7 +3263,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3281,14 +3281,23 @@
           "f1": 0.4,
           "f2": 0.2941
         },
-        "SCHOOL_NAME": {
+        "PARENT_NAME": {
           "tp": 12,
-          "fp": 8,
+          "fp": 5,
           "fn": 0,
-          "precision": 0.6,
+          "precision": 0.7059,
           "recall": 1.0,
-          "f1": 0.75,
-          "f2": 0.8824
+          "f1": 0.8276,
+          "f2": 0.9231
+        },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         },
         "CHILD_NAME": {
           "tp": 12,
@@ -3299,15 +3308,6 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 5,
-          "fn": 0,
-          "precision": 0.7059,
-          "recall": 1.0,
-          "f1": 0.8276,
-          "f2": 0.9231
-        },
         "EMAIL": {
           "tp": 12,
           "fp": 0,
@@ -3317,14 +3317,14 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "SCHOOL_NAME": {
           "tp": 12,
-          "fp": 0,
+          "fp": 8,
           "fn": 0,
-          "precision": 1.0,
+          "precision": 0.6,
           "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "f1": 0.75,
+          "f2": 0.8824
         }
       },
       "by_tier": {
@@ -3356,9 +3356,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "d4b3aebb8c43e5f84038f0017e5c2cf3481706103424a1934f5a313d57f62204",
-      "latency_ms_p50": 8.746,
-      "latency_ms_p95": 10.619,
-      "characters_per_second": 43409.1
+      "latency_ms_p50": 8.525,
+      "latency_ms_p95": 10.389,
+      "characters_per_second": 44520.7
     },
     "fr_asr/no_known": {
       "documents": 12,
@@ -3395,60 +3395,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 40,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -3467,6 +3413,24 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -3476,7 +3440,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3494,7 +3467,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 40,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -3503,7 +3503,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -3514,15 +3514,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 40,
-          "fn": 96,
-          "precision": 0.375,
-          "recall": 0.2,
-          "f1": 0.2609,
-          "f2": 0.2206
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -3531,6 +3522,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 40,
+          "fn": 96,
+          "precision": 0.375,
+          "recall": 0.2,
+          "f1": 0.2609,
+          "f2": 0.2206
         }
       },
       "direct_identifier_documents": 12,
@@ -3542,9 +3542,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "889e5f54473c436e7490392122e4e0e43fc70b27c60e3e1373d49b33b23d8a22",
-      "latency_ms_p50": 1.787,
-      "latency_ms_p95": 1.87,
-      "characters_per_second": 259882.1
+      "latency_ms_p50": 1.775,
+      "latency_ms_p95": 1.89,
+      "characters_per_second": 261684.5
     },
     "fr_asr/known": {
       "documents": 12,
@@ -3581,33 +3581,6 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 27,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -3626,7 +3599,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3644,14 +3644,41 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 27,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.7059,
+          "recall": 1.0,
+          "f1": 0.8276,
+          "f2": 0.9231
+        },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.7059,
+          "recall": 1.0,
+          "f1": 0.8276,
+          "f2": 0.9231
         },
         "EMAIL": {
           "tp": 12,
@@ -3670,45 +3697,9 @@
           "recall": 1.0,
           "f1": 0.75,
           "f2": 0.8824
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 5,
-          "fn": 0,
-          "precision": 0.7059,
-          "recall": 1.0,
-          "f1": 0.8276,
-          "f2": 0.9231
-        },
-        "PHONE": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 5,
-          "fn": 0,
-          "precision": 0.7059,
-          "recall": 1.0,
-          "f1": 0.8276,
-          "f2": 0.9231
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 60,
-          "fp": 45,
-          "fn": 60,
-          "precision": 0.5714,
-          "recall": 0.5,
-          "f1": 0.5333,
-          "f2": 0.5128
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -3717,6 +3708,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 60,
+          "fp": 45,
+          "fn": 60,
+          "precision": 0.5714,
+          "recall": 0.5,
+          "f1": 0.5333,
+          "f2": 0.5128
         }
       },
       "direct_identifier_documents": 12,
@@ -3728,9 +3728,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "3440e794c83aaeb8cef4f926771bce55e16a51a5fd9893664515828f468fb987",
-      "latency_ms_p50": 9.835,
-      "latency_ms_p95": 11.982,
-      "characters_per_second": 47221.8
+      "latency_ms_p50": 9.729,
+      "latency_ms_p95": 11.588,
+      "characters_per_second": 47846.5
     },
     "de_clean/no_known": {
       "documents": 12,
@@ -3767,69 +3767,6 @@
         }
       },
       "by_entity": {
-        "NEIGHBORHOOD": {
-          "tp": 0,
-          "fp": 12,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 160,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -3848,16 +3785,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
+        "NEIGHBORHOOD": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 12,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -3875,6 +3812,42 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
@@ -3884,7 +3857,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 160,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -3893,7 +3893,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -3932,9 +3932,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "3f7274edb4765138a99c56c2d174050e7e7df239280a9c7b4c2d80a2b38a20a8",
-      "latency_ms_p50": 3.027,
-      "latency_ms_p95": 3.226,
-      "characters_per_second": 119443.2
+      "latency_ms_p50": 2.936,
+      "latency_ms_p95": 3.086,
+      "characters_per_second": 124165.4
     },
     "de_clean/known": {
       "documents": 12,
@@ -3971,34 +3971,16 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
+        "NEIGHBORHOOD": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 118,
+          "fp": 12,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "DATE_OF_BIRTH": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4016,7 +3998,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4025,10 +4007,28 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "NEIGHBORHOOD": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 12,
+          "fp": 118,
           "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "STREET_ADDRESS": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -4052,7 +4052,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4060,24 +4060,6 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
-        },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 2,
-          "fn": 0,
-          "precision": 0.8571,
-          "recall": 1.0,
-          "f1": 0.9231,
-          "f2": 0.9677
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
         },
         "PARENT_NAME": {
           "tp": 12,
@@ -4088,6 +4070,24 @@
           "f1": 0.6316,
           "f2": 0.8108
         },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
         "EMAIL": {
           "tp": 12,
           "fp": 0,
@@ -4097,26 +4097,17 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "SCHOOL_NAME": {
           "tp": 12,
-          "fp": 0,
+          "fp": 2,
           "fn": 0,
-          "precision": 1.0,
+          "precision": 0.8571,
           "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "f1": 0.9231,
+          "f2": 0.9677
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 60,
-          "fp": 134,
-          "fn": 60,
-          "precision": 0.3093,
-          "recall": 0.5,
-          "f1": 0.3822,
-          "f2": 0.4451
-        },
         "quasi": {
           "tp": 0,
           "fp": 24,
@@ -4125,6 +4116,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 60,
+          "fp": 134,
+          "fn": 60,
+          "precision": 0.3093,
+          "recall": 0.5,
+          "f1": 0.3822,
+          "f2": 0.4451
         }
       },
       "direct_identifier_documents": 12,
@@ -4136,9 +4136,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "4700701b5a37e2fc408a1e0f9f29ddc9b0b57e43637af1777e649b2352959b26",
-      "latency_ms_p50": 10.19,
-      "latency_ms_p95": 10.598,
-      "characters_per_second": 34975.3
+      "latency_ms_p50": 9.984,
+      "latency_ms_p95": 10.307,
+      "characters_per_second": 36287.4
     },
     "de_asr/no_known": {
       "documents": 12,
@@ -4175,60 +4175,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 56,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -4247,6 +4193,24 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -4256,7 +4220,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4274,7 +4247,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 56,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -4283,7 +4283,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -4294,15 +4294,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 56,
-          "fn": 96,
-          "precision": 0.3,
-          "recall": 0.2,
-          "f1": 0.24,
-          "f2": 0.2143
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -4311,6 +4302,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 56,
+          "fn": 96,
+          "precision": 0.3,
+          "recall": 0.2,
+          "f1": 0.24,
+          "f2": 0.2143
         }
       },
       "direct_identifier_documents": 12,
@@ -4322,9 +4322,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "563feac69c4fd65408250b699bc5ae837d3b20c2e6f8a5c6db3d282aebddf5c7",
-      "latency_ms_p50": 1.752,
-      "latency_ms_p95": 1.843,
-      "characters_per_second": 253111.3
+      "latency_ms_p50": 1.718,
+      "latency_ms_p95": 1.816,
+      "characters_per_second": 258361.4
     },
     "de_asr/known": {
       "documents": 12,
@@ -4361,33 +4361,6 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 29,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -4406,7 +4379,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4424,14 +4424,41 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 29,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 14,
+          "fn": 0,
+          "precision": 0.4615,
+          "recall": 1.0,
+          "f1": 0.6316,
+          "f2": 0.8108
+        },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.8571,
+          "recall": 1.0,
+          "f1": 0.9231,
+          "f2": 0.9677
         },
         "EMAIL": {
           "tp": 12,
@@ -4450,45 +4477,9 @@
           "recall": 1.0,
           "f1": 0.8889,
           "f2": 0.9524
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 2,
-          "fn": 0,
-          "precision": 0.8571,
-          "recall": 1.0,
-          "f1": 0.9231,
-          "f2": 0.9677
-        },
-        "PHONE": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 14,
-          "fn": 0,
-          "precision": 0.4615,
-          "recall": 1.0,
-          "f1": 0.6316,
-          "f2": 0.8108
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 60,
-          "fp": 48,
-          "fn": 60,
-          "precision": 0.5556,
-          "recall": 0.5,
-          "f1": 0.5263,
-          "f2": 0.5102
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -4497,6 +4488,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 60,
+          "fp": 48,
+          "fn": 60,
+          "precision": 0.5556,
+          "recall": 0.5,
+          "f1": 0.5263,
+          "f2": 0.5102
         }
       },
       "direct_identifier_documents": 12,
@@ -4508,9 +4508,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "334312bfb8f2b63fad6e8816dbccde22d1c53db81db1707976ee6303d7e2a755",
-      "latency_ms_p50": 11.211,
-      "latency_ms_p95": 11.523,
-      "characters_per_second": 39571.0
+      "latency_ms_p50": 10.867,
+      "latency_ms_p95": 11.13,
+      "characters_per_second": 40806.6
     },
     "it_clean/no_known": {
       "documents": 12,
@@ -4547,60 +4547,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 114,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -4619,16 +4565,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4646,6 +4583,42 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
@@ -4655,7 +4628,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 114,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -4664,7 +4664,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -4675,15 +4675,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 114,
-          "fn": 96,
-          "precision": 0.1739,
-          "recall": 0.2,
-          "f1": 0.186,
-          "f2": 0.1942
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -4692,6 +4683,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 114,
+          "fn": 96,
+          "precision": 0.1739,
+          "recall": 0.2,
+          "f1": 0.186,
+          "f2": 0.1942
         }
       },
       "direct_identifier_documents": 12,
@@ -4704,9 +4704,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "1e09eacda3371896ea177c370ae9cdd84d50e9c74e3758c9dd1c08eac1076089",
-      "latency_ms_p50": 2.477,
-      "latency_ms_p95": 2.567,
-      "characters_per_second": 146994.6
+      "latency_ms_p50": 2.426,
+      "latency_ms_p95": 2.484,
+      "characters_per_second": 150666.8
     },
     "it_clean/known": {
       "documents": 12,
@@ -4752,19 +4752,10 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PERSON_NAME": {
+        "PRECISE_DATE": {
           "tp": 0,
-          "fp": 78,
+          "fp": 12,
           "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -4779,16 +4770,25 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PRECISE_DATE": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 12,
+          "fp": 78,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4815,7 +4815,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -4824,16 +4824,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.6667,
-          "recall": 1.0,
-          "f1": 0.8,
-          "f2": 0.9091
-        },
-        "CHILD_NAME": {
+        "PARENT_NAME": {
           "tp": 12,
           "fp": 8,
           "fn": 0,
@@ -4842,7 +4833,16 @@
           "f1": 0.75,
           "f2": 0.8824
         },
-        "PARENT_NAME": {
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
           "tp": 12,
           "fp": 8,
           "fn": 0,
@@ -4860,14 +4860,14 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "SCHOOL_NAME": {
           "tp": 12,
-          "fp": 0,
+          "fp": 6,
           "fn": 0,
-          "precision": 1.0,
+          "precision": 0.6667,
           "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "f1": 0.8,
+          "f2": 0.9091
         }
       },
       "by_tier": {
@@ -4899,9 +4899,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "41348eabf922266c0a764d67a02ed4bb0ef1b514dc608cdfa98a91ff0c8dc094",
-      "latency_ms_p50": 8.677,
-      "latency_ms_p95": 8.774,
-      "characters_per_second": 41878.8
+      "latency_ms_p50": 8.551,
+      "latency_ms_p95": 8.601,
+      "characters_per_second": 42507.7
     },
     "it_asr/no_known": {
       "documents": 12,
@@ -4938,60 +4938,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 63,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -5010,6 +4956,24 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -5019,7 +4983,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5037,7 +5010,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 63,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -5046,7 +5046,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -5057,15 +5057,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 63,
-          "fn": 96,
-          "precision": 0.2759,
-          "recall": 0.2,
-          "f1": 0.2319,
-          "f2": 0.2116
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -5074,6 +5065,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 63,
+          "fn": 96,
+          "precision": 0.2759,
+          "recall": 0.2,
+          "f1": 0.2319,
+          "f2": 0.2116
         }
       },
       "direct_identifier_documents": 12,
@@ -5085,9 +5085,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "e9a1d21c690ee087d09fd576e3c75d848763b37d39f0bcc3e5a221805d60fed2",
-      "latency_ms_p50": 1.824,
-      "latency_ms_p95": 1.894,
-      "characters_per_second": 239148.3
+      "latency_ms_p50": 1.78,
+      "latency_ms_p95": 1.857,
+      "characters_per_second": 241354.9
     },
     "it_asr/known": {
       "documents": 12,
@@ -5124,33 +5124,6 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 41,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -5169,7 +5142,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5187,14 +5187,41 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 41,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 7,
+          "fn": 0,
+          "precision": 0.6316,
+          "recall": 1.0,
+          "f1": 0.7742,
+          "f2": 0.8955
+        },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 7,
+          "fn": 0,
+          "precision": 0.6316,
+          "recall": 1.0,
+          "f1": 0.7742,
+          "f2": 0.8955
         },
         "EMAIL": {
           "tp": 12,
@@ -5213,45 +5240,9 @@
           "recall": 1.0,
           "f1": 0.8,
           "f2": 0.9091
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 7,
-          "fn": 0,
-          "precision": 0.6316,
-          "recall": 1.0,
-          "f1": 0.7742,
-          "f2": 0.8955
-        },
-        "PHONE": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 7,
-          "fn": 0,
-          "precision": 0.6316,
-          "recall": 1.0,
-          "f1": 0.7742,
-          "f2": 0.8955
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 60,
-          "fp": 61,
-          "fn": 60,
-          "precision": 0.4959,
-          "recall": 0.5,
-          "f1": 0.4979,
-          "f2": 0.4992
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -5260,6 +5251,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 60,
+          "fp": 61,
+          "fn": 60,
+          "precision": 0.4959,
+          "recall": 0.5,
+          "f1": 0.4979,
+          "f2": 0.4992
         }
       },
       "direct_identifier_documents": 12,
@@ -5271,9 +5271,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "6d985484736027d6ebb2076620969c7269ed23901d8fbfaeec173dc59525ee89",
-      "latency_ms_p50": 9.534,
-      "latency_ms_p95": 9.792,
-      "characters_per_second": 45869.8
+      "latency_ms_p50": 9.645,
+      "latency_ms_p95": 9.841,
+      "characters_per_second": 45003.4
     },
     "nl_clean/no_known": {
       "documents": 12,
@@ -5310,78 +5310,6 @@
         }
       },
       "by_entity": {
-        "NEIGHBORHOOD": {
-          "tp": 0,
-          "fp": 12,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 157,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -5400,7 +5328,79 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "NEIGHBORHOOD": {
+          "tp": 0,
+          "fp": 12,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PRECISE_DATE": {
+          "tp": 0,
+          "fp": 12,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5418,16 +5418,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PRECISE_DATE": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 12,
+          "fp": 157,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5475,9 +5475,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "8815f2077f7b3b38f22bb6bf296c9596964152e31086818d74fa0b9b1413ba1f",
-      "latency_ms_p50": 2.503,
-      "latency_ms_p95": 2.592,
-      "characters_per_second": 140326.9
+      "latency_ms_p50": 2.594,
+      "latency_ms_p95": 2.642,
+      "characters_per_second": 136414.7
     },
     "nl_clean/known": {
       "documents": 12,
@@ -5514,34 +5514,16 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
+        "NEIGHBORHOOD": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 120,
+          "fp": 12,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "DATE_OF_BIRTH": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5559,7 +5541,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5568,16 +5550,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "NEIGHBORHOOD": {
+        "PHONE": {
           "tp": 0,
-          "fp": 12,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 120,
           "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "PHONE": {
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5604,7 +5604,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5613,7 +5613,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "SCHOOL_NAME": {
+        "PARENT_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -5631,7 +5631,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PARENT_NAME": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -5640,7 +5640,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "EMAIL": {
+        "SCHOOL_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -5651,15 +5651,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 48,
-          "fp": 120,
-          "fn": 72,
-          "precision": 0.2857,
-          "recall": 0.4,
-          "f1": 0.3333,
-          "f2": 0.3704
-        },
         "quasi": {
           "tp": 0,
           "fp": 36,
@@ -5668,6 +5659,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 48,
+          "fp": 120,
+          "fn": 72,
+          "precision": 0.2857,
+          "recall": 0.4,
+          "f1": 0.3333,
+          "f2": 0.3704
         }
       },
       "direct_identifier_documents": 12,
@@ -5679,9 +5679,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "3f02c6b62a9ee1d422ce35513e7f9a7ded7b3771b5d5a4150e4c253e91ceec94",
-      "latency_ms_p50": 7.709,
-      "latency_ms_p95": 8.36,
-      "characters_per_second": 44663.5
+      "latency_ms_p50": 7.714,
+      "latency_ms_p95": 8.585,
+      "characters_per_second": 44446.0
     },
     "nl_asr/no_known": {
       "documents": 12,
@@ -5718,60 +5718,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 48,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -5790,6 +5736,24 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -5799,7 +5763,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5817,7 +5790,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 48,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -5826,7 +5826,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -5837,15 +5837,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 48,
-          "fn": 96,
-          "precision": 0.3333,
-          "recall": 0.2,
-          "f1": 0.25,
-          "f2": 0.2174
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -5854,6 +5845,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 48,
+          "fn": 96,
+          "precision": 0.3333,
+          "recall": 0.2,
+          "f1": 0.25,
+          "f2": 0.2174
         }
       },
       "direct_identifier_documents": 12,
@@ -5865,9 +5865,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "35e3188b1ffaa039bd5e5cca8c7ca188f965f52aae05d3dd34d500b143f7835c",
-      "latency_ms_p50": 1.653,
-      "latency_ms_p95": 1.695,
-      "characters_per_second": 262343.4
+      "latency_ms_p50": 1.594,
+      "latency_ms_p95": 1.623,
+      "characters_per_second": 267852.2
     },
     "nl_asr/known": {
       "documents": 12,
@@ -5904,33 +5904,6 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 48,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -5949,7 +5922,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -5967,14 +5967,41 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 48,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 10,
+          "fn": 0,
+          "precision": 0.5455,
+          "recall": 1.0,
+          "f1": 0.7059,
+          "f2": 0.8571
+        },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         },
         "EMAIL": {
           "tp": 12,
@@ -5993,45 +6020,9 @@
           "recall": 1.0,
           "f1": 1.0,
           "f2": 1.0
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PHONE": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 10,
-          "fn": 0,
-          "precision": 0.5455,
-          "recall": 1.0,
-          "f1": 0.7059,
-          "f2": 0.8571
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 60,
-          "fp": 58,
-          "fn": 60,
-          "precision": 0.5085,
-          "recall": 0.5,
-          "f1": 0.5042,
-          "f2": 0.5017
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -6040,6 +6031,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 60,
+          "fp": 58,
+          "fn": 60,
+          "precision": 0.5085,
+          "recall": 0.5,
+          "f1": 0.5042,
+          "f2": 0.5017
         }
       },
       "direct_identifier_documents": 12,
@@ -6051,9 +6051,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "c1113e67e7f4d1cd0a4382c59f8f69d00461e957015627ebf8c24e6185109e73",
-      "latency_ms_p50": 9.582,
-      "latency_ms_p95": 9.963,
-      "characters_per_second": 44789.2
+      "latency_ms_p50": 9.366,
+      "latency_ms_p95": 9.877,
+      "characters_per_second": 46143.8
     },
     "pt_clean/no_known": {
       "documents": 12,
@@ -6090,69 +6090,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 108,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -6171,16 +6108,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -6198,7 +6126,79 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 108,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -6218,15 +6218,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 12,
-          "fp": 108,
-          "fn": 108,
-          "precision": 0.1,
-          "recall": 0.1,
-          "f1": 0.1,
-          "f2": 0.1
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -6235,6 +6226,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 12,
+          "fp": 108,
+          "fn": 108,
+          "precision": 0.1,
+          "recall": 0.1,
+          "f1": 0.1,
+          "f2": 0.1
         }
       },
       "direct_identifier_documents": 12,
@@ -6246,9 +6246,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "27fbd311f9608ba2c69d3859a39544f4cd74deba3b725f01ec46bd28f1e2e5f9",
-      "latency_ms_p50": 2.242,
-      "latency_ms_p95": 2.318,
-      "characters_per_second": 163857.1
+      "latency_ms_p50": 2.381,
+      "latency_ms_p95": 2.548,
+      "characters_per_second": 154229.8
     },
     "pt_clean/known": {
       "documents": 12,
@@ -6285,42 +6285,6 @@
         }
       },
       "by_entity": {
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 72,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -6339,16 +6303,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -6366,6 +6321,33 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
@@ -6374,6 +6356,42 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 72,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 7,
+          "fn": 0,
+          "precision": 0.6316,
+          "recall": 1.0,
+          "f1": 0.7742,
+          "f2": 0.8955
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "f2": 0.9091
         },
         "EMAIL": {
           "tp": 12,
@@ -6392,36 +6410,9 @@
           "recall": 1.0,
           "f1": 0.8,
           "f2": 0.9091
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.6667,
-          "recall": 1.0,
-          "f1": 0.8,
-          "f2": 0.9091
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 7,
-          "fn": 0,
-          "precision": 0.6316,
-          "recall": 1.0,
-          "f1": 0.7742,
-          "f2": 0.8955
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 48,
-          "fp": 91,
-          "fn": 72,
-          "precision": 0.3453,
-          "recall": 0.4,
-          "f1": 0.3707,
-          "f2": 0.3877
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -6430,6 +6421,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 48,
+          "fp": 91,
+          "fn": 72,
+          "precision": 0.3453,
+          "recall": 0.4,
+          "f1": 0.3707,
+          "f2": 0.3877
         }
       },
       "direct_identifier_documents": 12,
@@ -6441,9 +6441,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "9a6f3041873cc20dc2012b0c067f8b569af41386e8d8d890280d7759f54dd894",
-      "latency_ms_p50": 8.271,
-      "latency_ms_p95": 8.635,
-      "characters_per_second": 46231.1
+      "latency_ms_p50": 8.481,
+      "latency_ms_p95": 8.995,
+      "characters_per_second": 43973.3
     },
     "pt_asr/no_known": {
       "documents": 12,
@@ -6480,60 +6480,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 60,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -6552,6 +6498,24 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -6561,7 +6525,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -6579,7 +6552,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 60,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -6588,7 +6588,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -6599,15 +6599,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 60,
-          "fn": 96,
-          "precision": 0.2857,
-          "recall": 0.2,
-          "f1": 0.2353,
-          "f2": 0.2128
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -6616,6 +6607,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 60,
+          "fn": 96,
+          "precision": 0.2857,
+          "recall": 0.2,
+          "f1": 0.2353,
+          "f2": 0.2128
         }
       },
       "direct_identifier_documents": 12,
@@ -6627,9 +6627,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "c8d4a8b74ab5e670f635d8dd376b26135e52eec0d232b3b7b9f7dbe2194cde64",
-      "latency_ms_p50": 1.857,
-      "latency_ms_p95": 1.942,
-      "characters_per_second": 240082.3
+      "latency_ms_p50": 1.89,
+      "latency_ms_p95": 1.992,
+      "characters_per_second": 237788.6
     },
     "pt_asr/known": {
       "documents": 12,
@@ -6666,33 +6666,6 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 36,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -6711,7 +6684,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -6729,14 +6729,41 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 36,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "f2": 0.9091
+        },
+        "PHONE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 8,
+          "fn": 0,
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "f2": 0.8824
         },
         "EMAIL": {
           "tp": 12,
@@ -6755,45 +6782,9 @@
           "recall": 1.0,
           "f1": 0.8,
           "f2": 0.9091
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 8,
-          "fn": 0,
-          "precision": 0.6,
-          "recall": 1.0,
-          "f1": 0.75,
-          "f2": 0.8824
-        },
-        "PHONE": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.6667,
-          "recall": 1.0,
-          "f1": 0.8,
-          "f2": 0.9091
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 60,
-          "fp": 56,
-          "fn": 60,
-          "precision": 0.5172,
-          "recall": 0.5,
-          "f1": 0.5085,
-          "f2": 0.5034
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -6802,6 +6793,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 60,
+          "fp": 56,
+          "fn": 60,
+          "precision": 0.5172,
+          "recall": 0.5,
+          "f1": 0.5085,
+          "f2": 0.5034
         }
       },
       "direct_identifier_documents": 12,
@@ -6813,9 +6813,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "ad89296f02928064a5cb02d4f15912705350512609897eb12a846f37082d9d26",
-      "latency_ms_p50": 9.605,
-      "latency_ms_p95": 10.39,
-      "characters_per_second": 47365.9
+      "latency_ms_p50": 9.753,
+      "latency_ms_p95": 10.285,
+      "characters_per_second": 47016.5
     },
     "ru_clean/no_known": {
       "documents": 12,
@@ -6852,69 +6852,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 157,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -6933,16 +6870,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -6960,7 +6888,79 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 157,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -6980,15 +6980,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 12,
-          "fp": 157,
-          "fn": 108,
-          "precision": 0.071,
-          "recall": 0.1,
-          "f1": 0.083,
-          "f2": 0.0924
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -6997,6 +6988,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 12,
+          "fp": 157,
+          "fn": 108,
+          "precision": 0.071,
+          "recall": 0.1,
+          "f1": 0.083,
+          "f2": 0.0924
         }
       },
       "direct_identifier_documents": 12,
@@ -7008,9 +7008,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "64d9b39e029e028888c432e96cd57e8d56d79f8b73bb3b2e227b4780b10083de",
-      "latency_ms_p50": 2.928,
-      "latency_ms_p95": 3.062,
-      "characters_per_second": 115092.0
+      "latency_ms_p50": 2.923,
+      "latency_ms_p95": 3.068,
+      "characters_per_second": 116388.5
     },
     "ru_clean/known": {
       "documents": 12,
@@ -7047,42 +7047,6 @@
         }
       },
       "by_entity": {
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PERSON_NAME": {
-          "tp": 0,
-          "fp": 132,
-          "fn": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -7101,16 +7065,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7128,10 +7083,55 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PERSON_NAME": {
+          "tp": 0,
+          "fp": 132,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -7145,6 +7145,15 @@
           "recall": 0.4167,
           "f1": 0.5882,
           "f2": 0.4717
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 11,
+          "fn": 0,
+          "precision": 0.5217,
+          "recall": 1.0,
+          "f1": 0.6857,
+          "f2": 0.8451
         },
         "EMAIL": {
           "tp": 12,
@@ -7163,27 +7172,9 @@
           "recall": 1.0,
           "f1": 0.6857,
           "f2": 0.8451
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 11,
-          "fn": 0,
-          "precision": 0.5217,
-          "recall": 1.0,
-          "f1": 0.6857,
-          "f2": 0.8451
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 41,
-          "fp": 154,
-          "fn": 79,
-          "precision": 0.2103,
-          "recall": 0.3417,
-          "f1": 0.2603,
-          "f2": 0.3037
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -7192,6 +7183,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 41,
+          "fp": 154,
+          "fn": 79,
+          "precision": 0.2103,
+          "recall": 0.3417,
+          "f1": 0.2603,
+          "f2": 0.3037
         }
       },
       "direct_identifier_documents": 12,
@@ -7203,9 +7203,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "8318440a97a3a2535d18c36c1d07b2310d59bd6771a7aabf74895ec1035f2e9c",
-      "latency_ms_p50": 11.138,
-      "latency_ms_p95": 11.329,
-      "characters_per_second": 30447.0
+      "latency_ms_p50": 11.251,
+      "latency_ms_p95": 11.405,
+      "characters_per_second": 30142.2
     },
     "ru_asr/no_known": {
       "documents": 12,
@@ -7242,7 +7242,7 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7251,16 +7251,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7287,24 +7278,6 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -7314,7 +7287,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7332,7 +7314,25 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -7341,7 +7341,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -7352,15 +7352,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 0,
-          "fn": 96,
-          "precision": 1.0,
-          "recall": 0.2,
-          "f1": 0.3333,
-          "f2": 0.2381
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -7369,6 +7360,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 0,
+          "fn": 96,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333,
+          "f2": 0.2381
         }
       },
       "direct_identifier_documents": 12,
@@ -7380,9 +7380,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "f2ae8e6e11f45e7ddffc375a43d41d3a8622990b5b60d0e024cee28c35cadeec",
-      "latency_ms_p50": 1.521,
-      "latency_ms_p95": 1.531,
-      "characters_per_second": 286617.7
+      "latency_ms_p50": 1.562,
+      "latency_ms_p95": 1.61,
+      "characters_per_second": 277200.3
     },
     "ru_asr/known": {
       "documents": 12,
@@ -7419,24 +7419,6 @@
         }
       },
       "by_entity": {
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -7455,7 +7437,34 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "TEACHER_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7473,14 +7482,32 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
-          "tp": 0,
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "f2": 0.9091
+        },
+        "PHONE": {
+          "tp": 12,
           "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 15,
+          "fn": 0,
+          "precision": 0.4444,
+          "recall": 1.0,
+          "f1": 0.6154,
+          "f2": 0.8
         },
         "EMAIL": {
           "tp": 12,
@@ -7499,45 +7526,9 @@
           "recall": 1.0,
           "f1": 0.6857,
           "f2": 0.8451
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 15,
-          "fn": 0,
-          "precision": 0.4444,
-          "recall": 1.0,
-          "f1": 0.6154,
-          "f2": 0.8
-        },
-        "PHONE": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.6667,
-          "recall": 1.0,
-          "f1": 0.8,
-          "f2": 0.9091
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 60,
-          "fp": 32,
-          "fn": 60,
-          "precision": 0.6522,
-          "recall": 0.5,
-          "f1": 0.566,
-          "f2": 0.5245
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -7546,6 +7537,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 60,
+          "fp": 32,
+          "fn": 60,
+          "precision": 0.6522,
+          "recall": 0.5,
+          "f1": 0.566,
+          "f2": 0.5245
         }
       },
       "direct_identifier_documents": 12,
@@ -7557,9 +7557,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "393e8124c3a0f35b2b93767f4c6669bc3d8d7c7d17a49bb6ad37d7d5c26065b8",
-      "latency_ms_p50": 12.071,
-      "latency_ms_p95": 12.245,
-      "characters_per_second": 35908.7
+      "latency_ms_p50": 12.264,
+      "latency_ms_p95": 12.668,
+      "characters_per_second": 35279.4
     },
     "hi_clean/no_known": {
       "documents": 12,
@@ -7596,60 +7596,6 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -7668,16 +7614,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7695,7 +7632,70 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7715,15 +7715,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 108,
-          "precision": 1.0,
-          "recall": 0.1,
-          "f1": 0.1818,
-          "f2": 0.122
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -7732,6 +7723,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 108,
+          "precision": 1.0,
+          "recall": 0.1,
+          "f1": 0.1818,
+          "f2": 0.122
         }
       },
       "direct_identifier_documents": 12,
@@ -7743,9 +7743,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "d182f9757d636244695bf5d5dfc00f0fcb0d9321274e7193f5f9dad757f398a0",
-      "latency_ms_p50": 2.02,
-      "latency_ms_p95": 2.072,
-      "characters_per_second": 166258.4
+      "latency_ms_p50": 2.024,
+      "latency_ms_p95": 2.077,
+      "characters_per_second": 165339.6
     },
     "hi_clean/known": {
       "documents": 12,
@@ -7782,33 +7782,6 @@
         }
       },
       "by_entity": {
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "SIBLING_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "CITY": {
           "tp": 0,
           "fp": 0,
@@ -7827,16 +7800,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DATE_OF_BIRTH": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "EXACT_AGE": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7854,6 +7818,33 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "SIBLING_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
@@ -7862,6 +7853,33 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "CHILD_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         },
         "EMAIL": {
           "tp": 12,
@@ -7880,36 +7898,9 @@
           "recall": 1.0,
           "f1": 1.0,
           "f2": 1.0
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "PARENT_NAME": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 48,
-          "fp": 0,
-          "fn": 72,
-          "precision": 1.0,
-          "recall": 0.4,
-          "f1": 0.5714,
-          "f2": 0.4545
-        },
         "quasi": {
           "tp": 0,
           "fp": 12,
@@ -7918,6 +7909,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 48,
+          "fp": 0,
+          "fn": 72,
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714,
+          "f2": 0.4545
         }
       },
       "direct_identifier_documents": 12,
@@ -7929,9 +7929,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "41c1e9735da01efc0a5a30ea1c998d52c0a9f86c3b623b95f3308aeff004082a",
-      "latency_ms_p50": 3.616,
-      "latency_ms_p95": 3.943,
-      "characters_per_second": 94019.3
+      "latency_ms_p50": 3.776,
+      "latency_ms_p95": 4.083,
+      "characters_per_second": 91798.2
     },
     "hi_asr/no_known": {
       "documents": 12,
@@ -7968,7 +7968,7 @@
         }
       },
       "by_entity": {
-        "EMAIL": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -7977,34 +7977,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8031,25 +8004,52 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EMAIL": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8067,7 +8067,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8078,19 +8078,19 @@
         }
       },
       "by_tier": {
-        "direct": {
+        "quasi": {
           "tp": 0,
           "fp": 0,
-          "fn": 120,
+          "fn": 24,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "quasi": {
+        "direct": {
           "tp": 0,
           "fp": 0,
-          "fn": 24,
+          "fn": 120,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -8106,9 +8106,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "f8e3c86bfcc09a1bb7cb2a059daa4449d42cd7fc3a6a3f514570f8734297be80",
-      "latency_ms_p50": 2.296,
-      "latency_ms_p95": 2.353,
-      "characters_per_second": 165090.0
+      "latency_ms_p50": 2.36,
+      "latency_ms_p95": 2.444,
+      "characters_per_second": 160241.6
     },
     "hi_asr/known": {
       "documents": 12,
@@ -8145,7 +8145,7 @@
         }
       },
       "by_entity": {
-        "EMAIL": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8154,7 +8154,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PHONE": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8181,24 +8181,6 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -8208,7 +8190,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PHONE": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8226,7 +8208,25 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CHILD_NAME": {
+        "EMAIL": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
           "tp": 5,
           "fp": 0,
           "fn": 7,
@@ -8235,7 +8235,7 @@
           "f1": 0.5882,
           "f2": 0.4717
         },
-        "PARENT_NAME": {
+        "CHILD_NAME": {
           "tp": 5,
           "fp": 0,
           "fn": 7,
@@ -8255,15 +8255,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 22,
-          "fp": 0,
-          "fn": 98,
-          "precision": 1.0,
-          "recall": 0.1833,
-          "f1": 0.3099,
-          "f2": 0.2191
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -8272,6 +8263,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 22,
+          "fp": 0,
+          "fn": 98,
+          "precision": 1.0,
+          "recall": 0.1833,
+          "f1": 0.3099,
+          "f2": 0.2191
         }
       },
       "direct_identifier_documents": 12,
@@ -8283,9 +8283,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "45e9990195f0799cb07296c40c9c01402e7b14023c4969c9b3c1757cd98c8e78",
-      "latency_ms_p50": 4.425,
-      "latency_ms_p95": 4.814,
-      "characters_per_second": 86586.5
+      "latency_ms_p50": 4.536,
+      "latency_ms_p95": 4.721,
+      "characters_per_second": 85475.0
     },
     "ja_clean/no_known": {
       "documents": 12,
@@ -8322,7 +8322,7 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8331,25 +8331,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8376,25 +8358,43 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8412,7 +8412,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8432,15 +8432,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 108,
-          "precision": 1.0,
-          "recall": 0.1,
-          "f1": 0.1818,
-          "f2": 0.122
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -8449,6 +8440,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 108,
+          "precision": 1.0,
+          "recall": 0.1,
+          "f1": 0.1818,
+          "f2": 0.122
         }
       },
       "direct_identifier_documents": 12,
@@ -8460,9 +8460,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "5de41d761908a9066cb439d85fcd15499186c74054b57ade61721084fbe80eb0",
-      "latency_ms_p50": 0.544,
-      "latency_ms_p95": 0.564,
-      "characters_per_second": 313865.8
+      "latency_ms_p50": 0.579,
+      "latency_ms_p95": 0.596,
+      "characters_per_second": 296912.5
     },
     "ja_clean/known": {
       "documents": 12,
@@ -8499,7 +8499,7 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8508,16 +8508,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8544,24 +8535,6 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DATE_OF_BIRTH": {
           "tp": 0,
           "fp": 0,
@@ -8571,7 +8544,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EXACT_AGE": {
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8589,7 +8571,25 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "EMAIL": {
+        "EXACT_AGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -8598,7 +8598,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "CHILD_NAME": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -8609,15 +8609,6 @@
         }
       },
       "by_tier": {
-        "direct": {
-          "tp": 24,
-          "fp": 0,
-          "fn": 96,
-          "precision": 1.0,
-          "recall": 0.2,
-          "f1": 0.3333,
-          "f2": 0.2381
-        },
         "quasi": {
           "tp": 0,
           "fp": 0,
@@ -8626,6 +8617,15 @@
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
+        },
+        "direct": {
+          "tp": 24,
+          "fp": 0,
+          "fn": 96,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333,
+          "f2": 0.2381
         }
       },
       "direct_identifier_documents": 12,
@@ -8637,9 +8637,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "607d9a231011f0ce302932a0a7485adee35c369e948ad30525bb25cff92c964d",
-      "latency_ms_p50": 1.4,
-      "latency_ms_p95": 1.42,
-      "characters_per_second": 123320.6
+      "latency_ms_p50": 1.467,
+      "latency_ms_p95": 1.485,
+      "characters_per_second": 118504.4
     },
     "ja_asr/no_known": {
       "documents": 12,
@@ -8676,7 +8676,7 @@
         }
       },
       "by_entity": {
-        "EMAIL": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8685,34 +8685,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8739,25 +8712,52 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EMAIL": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8775,7 +8775,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8786,19 +8786,19 @@
         }
       },
       "by_tier": {
-        "direct": {
+        "quasi": {
           "tp": 0,
           "fp": 0,
-          "fn": 120,
+          "fn": 24,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "quasi": {
+        "direct": {
           "tp": 0,
           "fp": 0,
-          "fn": 24,
+          "fn": 120,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -8814,9 +8814,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "9f0e20126a6295a799ed4c0e3a72def7a3e35c9b056209d2fd0e86862a9c5bcc",
-      "latency_ms_p50": 0.456,
-      "latency_ms_p95": 0.473,
-      "characters_per_second": 381518.2
+      "latency_ms_p50": 0.496,
+      "latency_ms_p95": 0.526,
+      "characters_per_second": 345376.3
     },
     "ja_asr/known": {
       "documents": 12,
@@ -8853,7 +8853,7 @@
         }
       },
       "by_entity": {
-        "EMAIL": {
+        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8862,34 +8862,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PHONE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "PARENT_NAME": {
+        "STREET_ADDRESS": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8916,25 +8889,52 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "STREET_ADDRESS": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
         "DATE_OF_BIRTH": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PARENT_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "PHONE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "DOCTOR_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "EMAIL": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8952,7 +8952,7 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "DOCTOR_NAME": {
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -8963,19 +8963,19 @@
         }
       },
       "by_tier": {
-        "direct": {
+        "quasi": {
           "tp": 0,
           "fp": 0,
-          "fn": 120,
+          "fn": 24,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "quasi": {
+        "direct": {
           "tp": 0,
           "fp": 0,
-          "fn": 24,
+          "fn": 120,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -8991,9 +8991,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "9f0e20126a6295a799ed4c0e3a72def7a3e35c9b056209d2fd0e86862a9c5bcc",
-      "latency_ms_p50": 1.287,
-      "latency_ms_p95": 1.314,
-      "characters_per_second": 133893.7
+      "latency_ms_p50": 1.341,
+      "latency_ms_p95": 1.403,
+      "characters_per_second": 128000.3
     },
     "codeswitch_clean/no_known": {
       "documents": 12,
@@ -9030,16 +9030,7 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -9057,19 +9048,19 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "TEACHER_NAME": {
+        "PERSON_NAME": {
           "tp": 0,
-          "fp": 0,
-          "fn": 12,
+          "fp": 72,
+          "fn": 0,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "f2": 0.0
         },
-        "PERSON_NAME": {
+        "CITY": {
           "tp": 0,
-          "fp": 72,
-          "fn": 0,
+          "fp": 0,
+          "fn": 12,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -9093,7 +9084,16 @@
           "f1": 0.0,
           "f2": 0.0
         },
-        "CITY": {
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -9111,15 +9111,6 @@
           "f1": 0.5,
           "f2": 0.3846
         },
-        "STREET_ADDRESS": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
         "DATE_OF_BIRTH": {
           "tp": 12,
           "fp": 0,
@@ -9129,7 +9120,16 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "DOCTOR_NAME": {
+        "STREET_ADDRESS": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SIBLING_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9147,7 +9147,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "SIBLING_NAME": {
+        "DOCTOR_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9187,9 +9187,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "ccaba91c8b5a5ef0f91f40e30b032a3acbc425221e9a9abc69e3bab593e9a157",
-      "latency_ms_p50": 1.963,
-      "latency_ms_p95": 2.123,
-      "characters_per_second": 171760.4
+      "latency_ms_p50": 2.044,
+      "latency_ms_p95": 2.221,
+      "characters_per_second": 164337.8
     },
     "codeswitch_clean/known": {
       "documents": 12,
@@ -9244,6 +9244,15 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "CITY": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "HOME_ADDRESS": {
           "tp": 0,
           "fp": 12,
@@ -9254,15 +9263,6 @@
           "f2": 0.0
         },
         "EXACT_AGE": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CITY": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -9289,7 +9289,25 @@
           "f1": 0.6667,
           "f2": 0.7971
         },
-        "SCHOOL_NAME": {
+        "DATE_OF_BIRTH": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "STREET_ADDRESS": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SIBLING_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9307,16 +9325,7 @@
           "f1": 0.8889,
           "f2": 0.9524
         },
-        "STREET_ADDRESS": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "DATE_OF_BIRTH": {
+        "EMAIL": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9334,16 +9343,7 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "EMAIL": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "SIBLING_NAME": {
+        "SCHOOL_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9383,9 +9383,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "f3064c52ec4f07d2beb21a9bf2d6f4c853579ee2b7010060ad05797f2f433712",
-      "latency_ms_p50": 14.937,
-      "latency_ms_p95": 16.95,
-      "characters_per_second": 24378.9
+      "latency_ms_p50": 15.319,
+      "latency_ms_p95": 17.718,
+      "characters_per_second": 23586.5
     },
     "codeswitch_asr/no_known": {
       "documents": 12,
@@ -9422,16 +9422,7 @@
         }
       },
       "by_entity": {
-        "SCHOOL_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "CHILD_NAME": {
+        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -9441,15 +9432,6 @@
           "f2": 0.0
         },
         "PARENT_NAME": {
-          "tp": 0,
-          "fp": 0,
-          "fn": 12,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "f2": 0.0
-        },
-        "TEACHER_NAME": {
           "tp": 0,
           "fp": 0,
           "fn": 12,
@@ -9476,6 +9458,24 @@
           "f1": 0.0,
           "f2": 0.0
         },
+        "CHILD_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
+        "SCHOOL_NAME": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "f2": 0.0
+        },
         "DOCTOR_NAME": {
           "tp": 4,
           "fp": 0,
@@ -9484,15 +9484,6 @@
           "recall": 0.3333,
           "f1": 0.5,
           "f2": 0.3846
-        },
-        "EMAIL": {
-          "tp": 9,
-          "fp": 0,
-          "fn": 3,
-          "precision": 1.0,
-          "recall": 0.75,
-          "f1": 0.8571,
-          "f2": 0.7895
         },
         "PHONE": {
           "tp": 9,
@@ -9503,25 +9494,16 @@
           "f1": 0.8571,
           "f2": 0.7895
         },
-        "STREET_ADDRESS": {
-          "tp": 12,
+        "EMAIL": {
+          "tp": 9,
           "fp": 0,
-          "fn": 0,
+          "fn": 3,
           "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
+          "recall": 0.75,
+          "f1": 0.8571,
+          "f2": 0.7895
         },
         "DATE_OF_BIRTH": {
-          "tp": 12,
-          "fp": 0,
-          "fn": 0,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "f2": 1.0
-        },
-        "SIBLING_NAME": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9538,6 +9520,24 @@
           "recall": 1.0,
           "f1": 0.6667,
           "f2": 0.8333
+        },
+        "STREET_ADDRESS": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
+        },
+        "SIBLING_NAME": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "f2": 1.0
         }
       },
       "by_tier": {
@@ -9569,9 +9569,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "a808f7042f66463558394a403c269cd64d0f73aea6aec92d1c1553d89c6785dd",
-      "latency_ms_p50": 1.597,
-      "latency_ms_p95": 2.213,
-      "characters_per_second": 240141.8
+      "latency_ms_p50": 1.647,
+      "latency_ms_p95": 2.196,
+      "characters_per_second": 236887.5
     },
     "codeswitch_asr/known": {
       "documents": 12,
@@ -9644,7 +9644,7 @@
           "f1": 0.5,
           "f2": 0.3846
         },
-        "EMAIL": {
+        "PHONE": {
           "tp": 9,
           "fp": 0,
           "fn": 3,
@@ -9653,7 +9653,7 @@
           "f1": 0.8571,
           "f2": 0.7895
         },
-        "PHONE": {
+        "EMAIL": {
           "tp": 9,
           "fp": 0,
           "fn": 3,
@@ -9671,25 +9671,7 @@
           "f1": 0.6667,
           "f2": 0.7576
         },
-        "SCHOOL_NAME": {
-          "tp": 12,
-          "fp": 1,
-          "fn": 0,
-          "precision": 0.9231,
-          "recall": 1.0,
-          "f1": 0.96,
-          "f2": 0.9836
-        },
-        "CHILD_NAME": {
-          "tp": 12,
-          "fp": 6,
-          "fn": 0,
-          "precision": 0.6667,
-          "recall": 1.0,
-          "f1": 0.8,
-          "f2": 0.9091
-        },
-        "STREET_ADDRESS": {
+        "DATE_OF_BIRTH": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9698,7 +9680,16 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "DATE_OF_BIRTH": {
+        "CITY": {
+          "tp": 12,
+          "fp": 12,
+          "fn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "f2": 0.8333
+        },
+        "STREET_ADDRESS": {
           "tp": 12,
           "fp": 0,
           "fn": 0,
@@ -9716,14 +9707,23 @@
           "f1": 1.0,
           "f2": 1.0
         },
-        "CITY": {
+        "CHILD_NAME": {
           "tp": 12,
-          "fp": 12,
+          "fp": 6,
           "fn": 0,
-          "precision": 0.5,
+          "precision": 0.6667,
           "recall": 1.0,
-          "f1": 0.6667,
-          "f2": 0.8333
+          "f1": 0.8,
+          "f2": 0.9091
+        },
+        "SCHOOL_NAME": {
+          "tp": 12,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9231,
+          "recall": 1.0,
+          "f1": 0.96,
+          "f2": 0.9836
         }
       },
       "by_tier": {
@@ -9755,9 +9755,9 @@
       "passed_with_uncovered_direct_span": 0,
       "negative_redacted_character_fraction": null,
       "output_sha256_without_timings": "15259154b724c2881e9fa69be4dd5e4a48ef15a77e8ad7f528599f77376d2a52",
-      "latency_ms_p50": 17.908,
-      "latency_ms_p95": 21.136,
-      "characters_per_second": 24954.8
+      "latency_ms_p50": 18.468,
+      "latency_ms_p95": 21.671,
+      "characters_per_second": 24333.8
     }
   },
   "repeatability_sample_passed": true

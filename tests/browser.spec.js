@@ -68,3 +68,50 @@ test("mobile layout fits the viewport", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await page.screenshot({ path: ".build/mobile.png", fullPage: true });
 });
+
+test("invalid identifier values show an error and a corrected input recovers", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("#engine")).toHaveText("● Local engine ready", {
+    timeout: 90000,
+  });
+  await page.locator(".known summary").click();
+  await page.locator("#known").fill('{"CHILD_NAME": 42}');
+  await page.locator("#run").click();
+  await expect(page.locator("#verdict")).toHaveText(
+    "Input could not be processed",
+  );
+  await expect(page.locator("#copy")).toBeDisabled();
+  await page.locator("#known").fill('{"CHILD_NAME": ["Aisha"]}');
+  await page.locator("#run").click();
+  await expect(page.locator("#verdict")).toHaveText("Checks passed");
+  await expect(page.locator("#output")).not.toContainText("Aisha");
+});
+
+test("a corrupt package manifest prevents processing", async ({ page }) => {
+  await page.route("**/manifest.json", (route) =>
+    route.fulfill({ json: { sha256: "invalid" } }),
+  );
+  await page.goto("/");
+  await expect(page.locator("#engine")).toHaveText("Engine could not load", {
+    timeout: 90000,
+  });
+  await expect(page.locator("#run")).toBeDisabled();
+  await expect(page.locator("#copy")).toBeDisabled();
+});
+
+test("a stalled engine reports its timeout", async ({ page }) => {
+  await page.route("**/worker.js", (route) =>
+    route.fulfill({
+      contentType: "text/javascript",
+      body: "onmessage = () => {};",
+    }),
+  );
+  await page.clock.install();
+  await page.goto("/");
+  await page.clock.fastForward(90001);
+  await expect(page.locator("#engine")).toHaveText("Engine could not load");
+  await expect(page.locator("#feedback")).toContainText("timed out");
+  await expect(page.locator("#run")).toBeDisabled();
+});

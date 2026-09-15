@@ -3,7 +3,7 @@
 raw transcript
     -> parse + metadata strip
     -> speaker role inference
-    -> PARALLEL detector ensemble (never sequential redaction)
+    -> detector ensemble over the original text
     -> span fusion with provenance
     -> quasi-identifier risk pass
     -> pseudonymise / generalise / redact
@@ -25,7 +25,7 @@ from . import quasi as quasi_mod
 from .config import Config
 from .detectors.base import Detector, build_detectors, run_detectors
 from .fusion import fuse
-from .io_formats import load_file, load_text
+from .io_formats import load_file, load_text, validate_document
 from .roles import assign_roles
 from .surrogates import SurrogateAllocator
 from .transform import transform
@@ -64,6 +64,10 @@ class Pipeline:
             detectors if detectors is not None else build_detectors(self.config, only=only)
         )
         self.available = [d for d in self.detectors if d.available]
+        if self.config.get("runtime.strict_detectors", True) and len(self.available) != len(
+            self.detectors
+        ):
+            raise RuntimeError("Required detector is unavailable")
         if not self.available:
             raise RuntimeError("no detectors are available - refusing to run")
 
@@ -97,8 +101,7 @@ class Pipeline:
         speaker_roles: dict[str, str] | None = None,
     ) -> Result:
         t0 = time.time()
-        if doc.text and not doc.turns:
-            raise ValueError("Document requires aligned turns; use process_text for plain text")
+        validate_document(doc)
         strip_metadata(doc)
         if known_values:
             merged = dict(doc.meta.get("known_values") or {})
@@ -113,7 +116,9 @@ class Pipeline:
         # config-level and per-document known values, in one place, for the
         # speaker-label allocator as well as the detectors
         doc.meta["_participants"] = all_known
-        assign_roles(doc, known_values=all_known, overrides=speaker_roles)
+        role_overrides = dict(doc.meta.get("speaker_roles") or {})
+        role_overrides.update(speaker_roles or {})
+        assign_roles(doc, known_values=all_known, overrides=role_overrides)
 
         detections: list[Detection] = run_detectors(
             self.available, doc, parallel=self.config.get("runtime.parallel_detectors", False)
@@ -198,11 +203,7 @@ class Pipeline:
             "spans_by_action": by_action,
             "direct_spans": direct,
             "detector_contribution": contribution,
-            "speaker_roles": {
-                speaker_map[label]: role
-                for label, role in doc.meta.get("speaker_roles", {}).items()
-                if label in speaker_map
-            },
+            "speaker_roles": {speaker_map[turn.index]: turn.role for turn in doc.turns},
             "pseudonym_pools": allocator.inventory(),
             "quasi": quasi_report.to_dict(),
             "audio": audio_mod.coverage(doc, audio_plan) if audio_plan else {},
@@ -246,6 +247,8 @@ def _merged_known(config: Config, doc: Document) -> dict[str, list[str]]:
         for k, v in source.items():
             if k.startswith("_"):
                 continue
+            if k not in config.taxonomy.entities:
+                raise ValueError("Known identifiers require canonical entity labels")
             vals = v if isinstance(v, list) else [v]
             out.setdefault(k, []).extend(
                 str(x.get("value") if isinstance(x, dict) else x) for x in vals

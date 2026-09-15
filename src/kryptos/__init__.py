@@ -19,7 +19,7 @@ from .config import Config, Taxonomy
 from .pipeline import Pipeline, process_text
 from .types import Detection, Document, QAFinding, Result, Span, Turn, Word
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __all__ = [
     "Config",
     "Taxonomy",

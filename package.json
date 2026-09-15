@@ -1,7 +1,7 @@
 {
   "name": "kryptos-demo",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "format": "prettier --write web tests/browser.spec.js playwright.config.js package.json",
     "format:check": "prettier --check web tests/browser.spec.js playwright.config.js package.json",

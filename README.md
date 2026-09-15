@@ -16,10 +16,14 @@ before sharing. A sanitized transcript does not anonymize a recording or a voice
 
 ## Quick start
 
+**Production use:** this is a review tool. The independent public test found retained
+identifiers even in some `passed` outputs. Read the [validation report](docs/VALIDATION.md)
+before using it on sensitive records; unattended publication is not qualified.
+
 Python 3.11 or later:
 
 ```bash
-python -m pip install "git+https://github.com/theaitoycompany/Kryptos.git@v0.1.0"
+python -m pip install "git+https://github.com/theaitoycompany/Kryptos.git@v0.1.1"
 ```
 
 ```python
@@ -88,7 +92,7 @@ from this repository's license. No custom-trained weights are included.
 ```bash
 git clone https://github.com/theaitoycompany/Kryptos.git
 cd Kryptos
-git checkout v0.1.0
+git checkout v0.1.1
 uv sync --locked
 uv run --locked python -m unittest discover -s tests -q
 uv run --locked kryptos selftest

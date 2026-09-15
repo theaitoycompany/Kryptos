@@ -71,10 +71,6 @@ class Detection:
     text: str = ""
     meta: dict[str, Any] = field(default_factory=dict)
 
-    def __post_init__(self) -> None:
-        if self.start > self.end:
-            self.start, self.end = self.end, self.start
-
     @property
     def length(self) -> int:
         return self.end - self.start

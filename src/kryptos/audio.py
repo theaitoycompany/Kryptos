@@ -6,7 +6,7 @@ leave the restricted zone as well, two independent things have to happen:
 1. spoken PII is removed from the waveform - that is what this module plans,
    using the word timings the ASR already produced
 2. the *voice* is anonymised - a separate problem this module does not solve
-   and must not be mistaken for; see docs/AUDIO.md
+   and must not be mistaken for; see docs/USAGE.md
 
 Emitting a plan rather than editing audio is deliberate: the plan is
 reviewable, and the edit is a single deterministic ffmpeg invocation.
@@ -14,6 +14,8 @@ reviewable, and the edit is a single deterministic ffmpeg invocation.
 
 from __future__ import annotations
 
+import math
+import os
 from typing import Any
 
 from .config import Config
@@ -25,6 +27,8 @@ def plan(doc: Document, spans: list[Span], config: Config) -> list[dict[str, Any
     if not config.get("audio.enabled", True) or not doc.has_timings():
         return []
     pad = float(config.get("audio.pad_seconds", 0.12))
+    if not math.isfinite(pad) or pad < 0:
+        raise ValueError("Audio padding must be finite and nonnegative")
     mode = config.get("audio.mode", "mute")
 
     intervals: list[dict[str, Any]] = []
@@ -86,6 +90,23 @@ def ffmpeg_command(
     input_path: str, output_path: str, intervals: list[dict[str, Any]], mode: str = "mute"
 ) -> str:
     """A single deterministic ffmpeg call that applies the whole plan."""
+    if mode not in {"mute", "beep"}:
+        raise ValueError("Unsupported audio mode")
+    input_path, output_path = os.path.abspath(input_path), os.path.abspath(output_path)
+    if input_path == output_path:
+        raise ValueError("Audio output must differ from input")
+    for interval in intervals:
+        start, end = interval["start"], interval["end"]
+        if (
+            not all(
+                isinstance(value, (int, float))
+                and not isinstance(value, bool)
+                and math.isfinite(value)
+                for value in (start, end)
+            )
+            or not 0 <= start < end
+        ):
+            raise ValueError("Invalid audio interval")
     if not intervals:
         return f"cp {_q(input_path)} {_q(output_path)}"
     if mode == "beep":
@@ -94,7 +115,8 @@ def ffmpeg_command(
         return (
             f"ffmpeg -y -i {_q(input_path)} -f lavfi -i sine=frequency=1000:sample_rate=48000 "
             f"-filter_complex \"[0:a]volume=0:enable='{expr}'[main];"
-            f"[1:a]volume=0.25:enable='{expr}'[beep];[main][beep]amix=inputs=2:duration=first[a]\" "
+            f"[1:a]volume='if(gt({expr},0),0.25,0)':eval=frame[beep];"
+            f'[main][beep]amix=inputs=2:duration=first:normalize=0[a]" '
             f'-map "[a]" {_q(output_path)}'
         )
     expr = "+".join("between(t,{:.3f},{:.3f})".format(i["start"], i["end"]) for i in intervals)

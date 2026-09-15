@@ -5,9 +5,12 @@ module.exports = defineConfig({
   testMatch: "browser.spec.js",
   timeout: 120000,
   workers: 1,
+  projects: ["chromium", "firefox", "webkit"].map((name) => ({
+    name,
+    use: { browserName: name },
+  })),
   use: {
     baseURL: process.env.KRYPTOS_DEMO_URL || "http://127.0.0.1:8765",
-    browserName: "chromium",
   },
   webServer: process.env.KRYPTOS_DEMO_URL
     ? undefined

@@ -43,18 +43,33 @@ def run(
     config = config or Config.load()
     pipeline = pipeline or Pipeline(config)
     records = load_gold(path)
+    if not records:
+        raise ValueError("Evaluation requires at least one labelled document")
 
     pairs = []
     per_doc: list[dict[str, Any]] = []
     for rec in records:
         doc = parse_json(rec, doc_id=str(rec.get("doc_id", "")))
-        result = pipeline.process(doc, known_values=rec.get("known_values"))
-        gold = [(int(s["start"]), int(s["end"]), s["entity"]) for s in rec.get("spans", [])]
+        if not isinstance(rec.get("spans"), list):
+            raise ValueError("Each evaluation document requires a spans list")
+        gold = []
+        for span in rec["spans"]:
+            start, end, entity = span["start"], span["end"], span["entity"]
+            if (
+                type(start) is not int
+                or type(end) is not int
+                or not 0 <= start < end <= len(doc.text)
+                or entity not in config.taxonomy.entities
+            ):
+                raise ValueError("Invalid evaluation annotation")
+            gold.append((start, end, entity))
+        result = pipeline.process(doc)
         pred = [(s.start, s.end, s.entity) for s in result.spans if s.action != "keep"]
-        pairs.append((doc.doc_id or str(len(pairs)), gold, pred))
+        index = len(pairs)
+        pairs.append((str(index), gold, pred))
         per_doc.append(
             {
-                "doc_id": doc.doc_id,
+                "document_index": index,
                 "status": result.status,
                 "n_gold": len(gold),
                 "n_pred": len(pred),

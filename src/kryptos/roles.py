@@ -160,6 +160,12 @@ def assign_roles(
     """Assign a role to every speaker; returns {speaker_label: role}."""
     known = known_values or {}
     overrides = {normalize(k): v for k, v in (overrides or {}).items()}
+    if any(
+        role
+        not in {ROLE_CHILD, ROLE_PARENT, ROLE_CLINICIAN, ROLE_TEACHER, ROLE_SIBLING, ROLE_UNKNOWN}
+        for role in overrides.values()
+    ):
+        raise ValueError("Unsupported speaker role")
 
     by_speaker: dict[str, list[Turn]] = {}
     for t in doc.turns:

@@ -56,6 +56,14 @@ def run(
                 "Detector failures are allowed by this configuration",
             )
         )
+    if PLACEHOLDER_RE.search(doc.text):
+        findings.append(
+            QAFinding(
+                "input_placeholder_review",
+                "warn",
+                "Input contains placeholder-like text that requires review",
+            )
+        )
     if doc.language not in {"en", "eng", "en-US", "en-GB"} or any(
         char.isalpha() and ord(char) > 127 and "LATIN" not in unicodedata.name(char, "")
         for char in doc.text
@@ -84,6 +92,30 @@ def run(
     findings.extend(_check_digit_runs(masked, config))
     findings.extend(_check_unreplaced(spans))
     findings.extend(_check_asr_confidence(doc, spans, config))
+    if config.get("audio.enabled", True) and doc.has_timings():
+        incomplete = 0
+        for span in spans:
+            if span.action == "keep":
+                continue
+            covered = set()
+            for turn in doc.turns:
+                for word in turn.words:
+                    if word.start is not None and word.end is not None and word.end > word.start:
+                        covered.update(
+                            range(max(span.start, word.char_start), min(span.end, word.char_end))
+                        )
+            if any(
+                not doc.text[i].isspace() and i not in covered for i in range(span.start, span.end)
+            ):
+                incomplete += 1
+        if incomplete:
+            findings.append(
+                QAFinding(
+                    "audio_alignment_review",
+                    "warn",
+                    f"{incomplete} transformed span(s) lack complete word timing coverage",
+                )
+            )
     if config.get("qa.capitalized_token_audit", True):
         findings.extend(_check_capitalised(masked, config))
     if quasi_report is not None:

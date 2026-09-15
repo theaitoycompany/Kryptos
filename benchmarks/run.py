@@ -54,10 +54,10 @@ def stable_result(result):
     return report
 
 
-def source_digest():
-    root = Path(__file__).resolve().parents[1]
+def source_digest(root=None):
+    root = Path(root) if root is not None else Path(__file__).resolve().parents[1]
     sources = {}
-    for directory in (root / "src", root / "benchmarks"):
+    for directory in (root / "src" / "kryptos", root / "benchmarks"):
         for path in sorted(directory.rglob("*")):
             if path.is_file() and path.suffix in {".py", ".json", ".txt"}:
                 sources[str(path.relative_to(root))] = hashlib.sha256(path.read_bytes()).hexdigest()

@@ -29,7 +29,7 @@ def main():
     manifest = {
         "archive": archive.name,
         "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
-        "version": "0.1.0",
+        "version": "0.1.1",
         "pyodide": "0.28.3",
     }
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
@@ -59,6 +59,9 @@ the published benchmarks from [the source repository](https://github.com/theaito
 This Space contains no model weights or production records. The optional GLiNER
 model runs through the Python package; it is not loaded in this browser demo.
 See the repository's benchmark report for measured limitations.
+The [independent validation report](https://github.com/theaitoycompany/Kryptos/blob/main/docs/VALIDATION.md)
+documents missed identifiers in some passed outputs. Human review is necessary;
+this tool is not qualified for unattended publication of anonymized records.
 
 The build command is `python scripts/build_space.py`. The archive hash is in
 `manifest.json`; the worker checks it before loading the Python package.

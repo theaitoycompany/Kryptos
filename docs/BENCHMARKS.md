@@ -14,10 +14,10 @@ Rows below use the 120-document written and ASR suites with known values. Full b
 
 | Profile | Input | Exact typed recall | Full-span coverage miss rate | Whole direct surface retained | Passed with retained surface | Median ms/doc |
 |---|---|---:|---:|---:|---:|---:|
-| core | written | 74.0% | 35.8% | 0/120 | 0/120 | 5.6 |
-| core | asr | 60.6% | 92.5% | 51/120 | 0/120 | 6.5 |
-| gliner | written | 70.8% | 19.2% | 0/120 | 0/120 | 213.5 |
-| gliner | asr | 59.4% | 39.2% | 3/120 | 0/120 | 212.7 |
+| core | written | 74.0% | 35.8% | 0/120 | 0/120 | 5.9 |
+| core | asr | 60.6% | 92.5% | 51/120 | 0/120 | 6.4 |
+| gliner | written | 70.8% | 19.2% | 0/120 | 0/120 | 209.3 |
+| gliner | asr | 59.4% | 39.2% | 3/120 | 0/120 | 207.0 |
 
 ## How to read the metrics
 
@@ -50,6 +50,6 @@ The first model run downloads pinned weights and tokenizer/backbone files. After
 
 The runner also compares repeated output on one fixed sample, excluding timing fields. This is a repeatability smoke check, not a multi-seed robustness experiment. The checked-in reports retain all bucket results rather than filtering misses.
 
-Core and model source hash: `e1238ec563d0493af45f71930dfdd78a101be6cedb099eb4fe89abf4828ca2a0`.
+Core and model source hash: `e545f4915e6691ed759281271f649000b9035d8fba59cccec774e4af715eaeb3`.
 
 Corpus hash: `ad09e8d8d207898538e234ce412aa3d80c6501eb752e2f3db5ad6dc5c5403ece`.

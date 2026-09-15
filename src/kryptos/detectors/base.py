@@ -43,6 +43,8 @@ class Detector:
         self.name = spec.get("name", self.type_name)
         self.family = spec.get("family", self.type_name)
         self.weight = float(spec.get("weight", 1.0))
+        if not math.isfinite(self.weight) or self.weight < 0:
+            raise ValueError("Detector weight must be finite and nonnegative")
         self.available = True
         self.unavailable_reason = ""
 

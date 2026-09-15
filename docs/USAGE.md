@@ -18,6 +18,11 @@ trimmed turn text joined by newlines, excluding speaker labels. They are not byt
 offsets in the original input. `Pipeline.process` requires a `Document` with aligned
 turns; `process_text` and `process_file` create them for you.
 
+Malformed structured segments, invalid word tokens, inconsistent offsets, and
+non-finite or reversed timings raise an error. Empty input is accepted; an unknown
+JSON structure is not treated as an empty transcript. WebVTT accepts short and
+hour-based cue timestamps. Numeric subtitle lines remain part of the spoken text.
+
 The API mutates its `Document` metadata, roles, and spans while processing. Keep
 the original in your own restricted storage if your workflow needs it. Do not use
 filenames or raw person IDs as published identifiers; reports drop source IDs.
@@ -59,6 +64,10 @@ set `surrogates.style` to `hmac`, provide at least 32 bytes through `KRYPTOS_HMA
 and pass an explicit opaque `doc_id`. The key and document ID define the scope. Different
 document IDs produce different pseudonyms. Never embed keys in source or config files.
 
+In `per_turn` mode both in-text names and speaker labels receive a separate identity
+scope for each turn. Transcript order, content, and role labels can still reveal relationships;
+this option alone does not guarantee unlinkability.
+
 `surrogates.keep_mapping=true` exposes a sensitive mapping only through
 `result.pseudonyms`; it is never serialized by `to_dict` or the CLI. The optional
 `surrogate` style uses names from the included lexicon and requires the same review
@@ -70,6 +79,8 @@ as other output. Placeholders are the default.
 identifiers. The API intentionally retains candidates for a local review workflow.
 The CLI and demo withhold blocked text and require an explicit option to show review
 text. Do not use a passing regex or a `passed` status as proof that all PII is gone.
+Input containing placeholder-like tokens also requires review, because those tokens
+can conceal identifiers from the output scanner.
 
 Span reports include entity labels, offsets, scores, actions, replacements, and
 detector provenance. They omit original matched strings and speaker names. Detected
@@ -80,6 +91,11 @@ The library makes no database requests, uploads, or remote inference calls. Opti
 model loading downloads weights. `kryptos offsets` explicitly prints unsanitized
 text for local annotation; never use it in shared logs.
 
+`kryptos eval gold.jsonl --output report.json` requires an explicit `spans` list for
+every record, including an empty list for negative controls. Reports use zero-based
+document indices instead of source IDs and are written with the same private, atomic
+file handling as transcript reports. Empty datasets and invalid annotations fail.
+
 ## Audio plans
 
 When word timings are present, `result.audio_plan` identifies candidate intervals
@@ -87,3 +103,6 @@ to mute. `kryptos audio-plan result.json --input recording.wav --output redacted
 prints an ffmpeg command; it does not execute it. Inspect both the command and timing
 coverage. Misaligned ASR timings can leave spoken PII. Muting content does not remove
 voice identity, background clues, or metadata.
+Incomplete word timing coverage triggers review. The emitted mute and beep commands
+are integration-tested on a generated waveform, including unchanged audio outside
+the selected interval. This verifies command behavior, not ASR alignment accuracy.

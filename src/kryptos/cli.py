@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import math
 import os
 import sys
 import tempfile
@@ -183,8 +184,7 @@ def cmd_eval(args: argparse.Namespace) -> int:
     report["per_document"] = per_doc
     text = json.dumps(report, indent=2)
     if args.output:
-        with open(args.output, "w", encoding="utf-8") as fh:
-            fh.write(text + "\n")
+        _write_private(args.output, text)
     else:
         print(text)
     rate = ev.conversation_leakage_rate()
@@ -301,7 +301,7 @@ def build_parser() -> argparse.ArgumentParser:
     e.add_argument("gold", help="JSONL gold file")
     e.add_argument("-o", "--output")
     e.add_argument(
-        "--max-leakage", type=float, help="exit non-zero if conversation leakage exceeds this"
+        "--max-leakage", type=_rate, help="exit non-zero if conversation leakage exceeds this"
     )
     e.set_defaults(func=cmd_eval)
 
@@ -320,6 +320,13 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("-q", "--quiet", action="store_true")
     s.set_defaults(func=cmd_selftest)
     return p
+
+
+def _rate(value: str) -> float:
+    number = float(value)
+    if not math.isfinite(number) or not 0 <= number <= 1:
+        raise argparse.ArgumentTypeError("Expected a finite rate between zero and one")
+    return number
 
 
 def main(argv: list[str] | None = None) -> int:

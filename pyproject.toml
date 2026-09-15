@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kryptos-pii"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local transcript de-identification with role-aware pseudonyms and explicit review gates"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -26,6 +26,7 @@ Demo = "https://huggingface.co/spaces/the-ai-toy-company/Kryptos"
 [project.optional-dependencies]
 ml = ["gliner==0.2.24", "transformers==5.16.1", "torch==2.14.0"]
 fast = ["rapidfuzz==3.14.6"]
+benchmark = ["pyarrow==25.0.1"]
 
 [project.scripts]
 kryptos = "kryptos.cli:main"

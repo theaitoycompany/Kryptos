@@ -58,6 +58,7 @@ class Allocation:
     label: str
     prefix: str
     canonical: str
+    turn_index: int
     variants: list[str] = field(default_factory=list)
 
 
@@ -71,6 +72,8 @@ class SurrogateAllocator:
         if self.scope not in {"per_turn", "per_conversation"}:
             raise ValueError("Scope must be per_turn or per_conversation")
         self.style = config.get("surrogates.style", "placeholder")
+        if self.style not in {"placeholder", "surrogate", "hmac"}:
+            raise ValueError("Unsupported pseudonym style")
         self.width = int(config.get("surrogates.number_width", 2))
         self.link_threshold = float(config.get("surrogates.link_threshold", 0.86))
         self.role_aware = bool(config.get("surrogates.role_aware", True))
@@ -123,7 +126,7 @@ class SurrogateAllocator:
         return alloc.label
 
     def _find(self, prefix: str, key: str, span: Span) -> Allocation | None:
-        hit = self._find_in(self._by_prefix.get(prefix, []), key, fuzzy=True)
+        hit = self._find_in(self._by_prefix.get(prefix, []), key, span.turn_index, fuzzy=True)
         if hit is not None:
             return hit
         # A name first seen as CHILD_NAME and later only as a generic PERSON
@@ -134,13 +137,17 @@ class SurrogateAllocator:
             for other, allocs in self._by_prefix.items():
                 if other == prefix or other not in _NAME_PREFIXES:
                     continue
-                hit = self._find_in(allocs, key, fuzzy=False)
+                hit = self._find_in(allocs, key, span.turn_index, fuzzy=False)
                 if hit is not None:
                     return hit
         return None
 
-    def _find_in(self, bucket: list[Allocation], key: str, fuzzy: bool) -> Allocation | None:
+    def _find_in(
+        self, bucket: list[Allocation], key: str, turn_index: int, fuzzy: bool
+    ) -> Allocation | None:
         for alloc in bucket:
+            if self.scope == "per_turn" and alloc.turn_index != turn_index:
+                continue
             if key == alloc.canonical or key in alloc.variants:
                 return alloc
             for known in [alloc.canonical] + alloc.variants:
@@ -156,7 +163,9 @@ class SurrogateAllocator:
         n = self._counters.get(prefix, 0) + 1
         self._counters[prefix] = n
         label = self._render_label(prefix, n, key, span)
-        alloc = Allocation(label=label, prefix=prefix, canonical=key, variants=[key])
+        alloc = Allocation(
+            label=label, prefix=prefix, canonical=key, turn_index=span.turn_index, variants=[key]
+        )
         self._by_prefix.setdefault(prefix, []).append(alloc)
         return alloc
 

@@ -23,7 +23,8 @@ let worker,
   ready = false,
   busy = false,
   result = null,
-  timeout;
+  timeout,
+  loadTimeout;
 
 function setButton() {
   run.disabled = !ready || busy || !input.value.trim();
@@ -63,13 +64,27 @@ function renderResult() {
     : "Automated checks passed. Inspect the result before sharing.";
 }
 function startWorker() {
+  clearTimeout(loadTimeout);
   if (worker) worker.terminate();
   ready = false;
   byId("engine").textContent = "Loading local engine…";
   setButton();
   worker = new Worker("worker.js");
+  const activeWorker = worker;
+  loadTimeout = setTimeout(() => {
+    if (worker !== activeWorker) return;
+    worker.terminate();
+    ready = false;
+    busy = false;
+    setButton();
+    byId("engine").textContent = "Engine could not load";
+    feedback.textContent =
+      "The engine download timed out. Check your connection and reload.";
+  }, 90000);
   worker.onmessage = ({ data }) => {
+    if (worker !== activeWorker) return;
     if (data.type === "ready") {
+      clearTimeout(loadTimeout);
       ready = true;
       byId("engine").textContent = "● Local engine ready";
       setButton();
@@ -82,16 +97,22 @@ function startWorker() {
       result = data.result;
       renderResult();
     } else if (data.type === "load-error") {
+      clearTimeout(loadTimeout);
+      ready = false;
+      setButton();
       byId("engine").textContent = "Engine could not load";
       feedback.textContent =
         "Check your connection and reload to download the local engine. Your text has not been uploaded.";
     } else {
+      verdict.textContent = "Input could not be processed";
       feedback.textContent =
         "Could not process this input. Check the known-identifier JSON and try a shorter transcript.";
     }
   };
   worker.onerror = () => {
+    if (worker !== activeWorker) return;
     clearTimeout(timeout);
+    clearTimeout(loadTimeout);
     busy = false;
     ready = false;
     setButton();
@@ -135,6 +156,7 @@ byId("form").addEventListener("submit", (event) => {
   timeout = setTimeout(() => {
     busy = false;
     startWorker();
+    verdict.textContent = "Processing stopped";
     feedback.textContent =
       "Processing took too long. Try a shorter transcript when the engine is ready.";
   }, 45000);
